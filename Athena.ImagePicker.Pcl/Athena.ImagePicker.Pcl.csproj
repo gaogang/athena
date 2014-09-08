@@ -40,15 +40,28 @@
     </Compile>
     <Compile Include="ViewModels\TestPageViewModel.cs" />
     <Compile Include="ViewModels\ViewModelBase.cs" />
+    <Compile Include="Views\ImageView.xaml.cs">
+      <DependentUpon>ImageView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ViewModels\ImageViewModel.cs" />
+    <Compile Include="Services\ImageService.cs" />
+    <Compile Include="Services\IImageService.cs" />
+    <Compile Include="Views\IContentPageBase.cs" />
+    <Compile Include="Views\ContentPageBase.cs" />
+    <Compile Include="ViewModels\IViewModel.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\Portable\$(TargetFrameworkVersion)\Microsoft.Portable.CSharp.targets" />
   <Import Project="..\packages\Xamarin.Forms.1.2.2.6243\build\portable-win+net45+wp80+MonoAndroid10+MonoTouch10\Xamarin.Forms.targets" Condition="Exists('..\packages\Xamarin.Forms.1.2.2.6243\build\portable-win+net45+wp80+MonoAndroid10+MonoTouch10\Xamarin.Forms.targets')" />
   <ItemGroup>
     <Folder Include="Views\" />
     <Folder Include="ViewModels\" />
+    <Folder Include="Services\" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Views\TestView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\ImageView.xaml">
       <Generator>MSBuild:Compile</Generator>
     </EmbeddedResource>
   </ItemGroup>

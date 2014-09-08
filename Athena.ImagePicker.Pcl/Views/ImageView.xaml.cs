@@ -4,9 +4,9 @@ using Xamarin.Forms;
 
 namespace Athena.ImagePicker.Pcl.Views
 {	
-	public partial class TestView : ContentPageBase
+	public partial class ImageView : ContentPageBase
 	{	
-		public TestView ()
+		public ImageView ()
 		{
 			InitializeComponent ();
 

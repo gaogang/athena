@@ -51,7 +51,8 @@ namespace Athena.ImagePicker.iOS.App
 
 			Athena.ImagePicker.Pcl.App.Intitialise ();
 
-			var viewController = (Athena.ImagePicker.Pcl.App.GetMainPage()).CreateViewController ();
+			var navigationPage = new NavigationPage (Athena.ImagePicker.Pcl.App.GetMainPage ());
+			var viewController = navigationPage.CreateViewController ();
 
 			Window = new UIWindow (UIScreen.MainScreen.Bounds);
 

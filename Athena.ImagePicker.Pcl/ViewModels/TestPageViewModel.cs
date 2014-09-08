@@ -3,25 +3,36 @@ using System.Reactive.Linq;
 using System.Windows.Input;
 using Microsoft.Practices.Unity;
 using Xamarin.Forms;
+using Athena.ImagePicker.Pcl.Views;
 
 namespace Athena.ImagePicker.Pcl.ViewModels
 {
-	public class TestPageViewModel : ViewModelBase
+	internal class TestPageViewModel : ViewModelBase
 	{
 		private readonly ICommand _selectPhotoCommand;
+		private readonly ICommand _gotoImageViewCommand;
 
 		private IImagePicker _imagePicker;
 		private string _message;
 
-		public TestPageViewModel ()
+		public TestPageViewModel () : 
+			base ()
 		{
 			_selectPhotoCommand = new Command (SelectPhotoCommandExecute);
+			_gotoImageViewCommand = new Command (GotoImageViewCommandExecute);
 		}
 
 		public ICommand SelectPhotoCommand 
 		{
 			get {
 				return _selectPhotoCommand;
+			}
+		}
+
+		public ICommand GotoImageViewCommand 
+		{
+			get { 
+				return _gotoImageViewCommand;
 			}
 		}
 
@@ -59,6 +70,11 @@ namespace Athena.ImagePicker.Pcl.ViewModels
 			} else {
 				Message = "Image Selected";
 			}
+		}
+
+		private void GotoImageViewCommandExecute(object args)
+		{
+			View.NavigateTo (new ImageView ());
 		}
 	}
 }

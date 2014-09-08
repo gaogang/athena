@@ -34,6 +34,8 @@ namespace Athena.ImagePicker.Pcl
 		public static void Intitialise()
 		{
 			Container.RegisterType<IImagePicker, ImagePicker> (new ContainerControlledLifetimeManager());
+
+			Container.RegisterType<IImageService, ImageService> (new ContainerControlledLifetimeManager ());
 		}
 
 		public static void Register<T>(T instance, LifetimeManager lifetimeManager)
