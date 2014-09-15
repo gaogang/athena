@@ -16,9 +16,9 @@ namespace Athena.ImagePicker
 
 		#region IImagePicker implementation
 
-		public Task<ImageSource> PickImageAsync ()
+		public Task<ImageObject> PickImageAsync ()
 		{
-			var tcs = new TaskCompletionSource<ImageSource> ();
+			var tcs = new TaskCompletionSource<ImageObject> ();
 
 			_imagePickerProvider.PickImage (i => {
 				tcs.SetResult(i);

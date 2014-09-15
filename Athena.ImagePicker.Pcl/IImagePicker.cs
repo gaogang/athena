@@ -7,7 +7,7 @@ namespace Athena.ImagePicker
 {
 	public interface IImagePicker
 	{
-		Task<ImageSource> PickImageAsync();
+		Task<ImageObject> PickImageAsync();
 	} 
 }
 

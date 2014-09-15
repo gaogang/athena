@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Reactive.Linq;
+using Athena.ImagePicker.Pcl;
 using MonoTouch.Foundation;
 using MonoTouch.UIKit;
 using Xamarin.Forms;
@@ -27,7 +28,7 @@ namespace Athena.ImagePicker.iOS
 
 		#region IImagePickerProvider implementation
 
-		public void PickImage (Action<ImageSource> action)
+		public void PickImage (Action<ImageObject> action)
 		{
 			Unsubscribe ();
 
@@ -48,7 +49,7 @@ namespace Athena.ImagePicker.iOS
 
 		#endregion
 
-		private void Subscribe(Action<ImageSource> handler)
+		private void Subscribe(Action<ImageObject> handler)
 		{
 			if (_imagePickedEventSubscription != null) {
 				throw new InvalidOperationException ("_imagePickedEventSubscription should have been disposed");
@@ -69,9 +70,12 @@ namespace Athena.ImagePicker.iOS
 							return;
 						}
 						
-						var image = pattern.EventArgs.Info[UIImagePickerController.OriginalImage] as UIImage;
+						var uiImage = pattern.EventArgs.Info[UIImagePickerController.OriginalImage] as UIImage;
 
-						handler(ImageSource.FromStream(() => image.AsPNG().AsStream()));
+					    handler(new ImageObject(
+												ImageSource.FromStream(()=> uiImage.AsPNG().AsStream()), 
+												uiImage.Size.Width, 
+												uiImage.Size.Height));
 
 						_viewController.DismissViewController(true, null);
 					});

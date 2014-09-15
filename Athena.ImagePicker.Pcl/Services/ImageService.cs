@@ -20,6 +20,20 @@ namespace Athena.ImagePicker.Pcl
 				_image = value;
 			}
 		}
+
+		public double Width
+		{
+			get { 
+				return 200.0;
+			}
+		}
+
+		public double Height 
+		{
+			get {
+				return 200.0;
+			}
+		}
 	}
 }
 

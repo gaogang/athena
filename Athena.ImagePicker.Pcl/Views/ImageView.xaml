@@ -2,6 +2,8 @@
 <ContentPageBase xmlns="http://xamarin.com/schemas/2014/forms" 
                  xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
                  xmlns:local="clr-namespace:Athena.ImagePicker.Pcl.ViewModels;assembly=Athena.ImagePicker.Pcl"
+                 xmlns:ex="clr-namespace:Athena.ImagePicker.Pcl.Extensions;assembly=Athena.ImagePicker.Pcl"
+                 xmlns:layouts="clr-namespace:Athena.ImagePicker.Pcl.Layouts;assembly=Athena.ImagePicker.Pcl"
                  x:Class="Athena.ImagePicker.Pcl.Views.ImageView">
     <ContentPageBase.Padding>
     	<OnPlatform x:TypeArguments="Thickness">
@@ -27,18 +29,72 @@
 				<RowDefinition Height="auto" />
 				<RowDefinition Height="*" />
 			</Grid.RowDefinitions>
+
+			<Grid.ColumnDefinitions>
+				<ColumnDefinition Width="*" />
+			</Grid.ColumnDefinitions>
+
 			<Button Grid.Row="0" 
                     Text="&#8592;"
                     BackgroundColor="Transparent"
                     Font="Large"
                     HorizontalOptions="Start"
                     Command="{Binding BackCommand}" />
+            
+			<Button Grid.Row="0" 
+                    Text="OK"
+                    BackgroundColor="Transparent"
+                    Font="Large"
+                    HorizontalOptions="End"
+                    Command="{Binding ConfirmCommand}" />
 
-			<Image Grid.Row="1"
-			       HorizontalOptions="Fill"
-				   VerticalOptions="Fill"
-				   Aspect="AspectFit"
-				   Source="{Binding Image}" />
+			<layouts:BindableRelativeLayout Grid.Row="1"
+			                HorizontalOptions="Fill"
+				            VerticalOptions="Fill">
+
+				            <Image x:Name="imageViewer"
+							       HorizontalOptions="CenterAndExpand"
+								   VerticalOptions="CenterAndExpand"
+								   Aspect="AspectFit"
+								   Source="{Binding Image}" 
+								   Width="{Binding ImageWidth}"
+								   Height="{Binding ImageHeight}"
+								   />
+
+				            <BoxView x:Name="LeftMask"
+				                     BackgroundColor="Blue"
+				                     Opacity="0.3" 
+				                     layouts:BindableRelativeLayout.ElementName="imageViewer"
+				                     layouts:BindableRelativeLayout.WidthFactor="{Binding LeftMaskWidthFactor}"
+				                     />
+
+							<BoxView x:Name="RightMask"
+				                     BackgroundColor="Blue"
+				                     Opacity="0.3" 
+				                     layouts:BindableRelativeLayout.ElementName="imageViewer"
+				                     layouts:BindableRelativeLayout.XFactor="{Binding RightMaskXFactor}"
+				                     layouts:BindableRelativeLayout.WidthFactor="{Binding RightMaskWidthFactor}"
+				                     />				                 
+
+							<BoxView x:Name="TopMask"
+				                     BackgroundColor="Blue"
+				                     Opacity="0.3" 
+				                     layouts:BindableRelativeLayout.ElementName="imageViewer"
+				                     layouts:BindableRelativeLayout.XFactor="{Binding TopMaskXFactor}"
+				                     layouts:BindableRelativeLayout.WidthFactor="{Binding TopMaskWidthFactor}"
+				                     layouts:BindableRelativeLayout.HeightFactor="{Binding TopMaskHeightFactor}"
+				                     />	
+
+							<BoxView x:Name="BottomMask"
+				                     BackgroundColor="Blue"
+				                     Opacity="0.3" 
+				                     layouts:BindableRelativeLayout.ElementName="imageViewer"
+				                     layouts:BindableRelativeLayout.XFactor="{Binding BottomMaskXFactor}"
+				                     layouts:BindableRelativeLayout.YFactor="{Binding BottomMaskYFactor}"
+				                     layouts:BindableRelativeLayout.WidthFactor="{Binding BottomMaskWidthFactor}"
+				                     layouts:BindableRelativeLayout.HeightFactor="{Binding BottomMaskHeightFactor}"
+				                     />		
+            </layouts:BindableRelativeLayout>
 		</Grid>
 	</ContentPageBase.Content>
 </ContentPageBase>
