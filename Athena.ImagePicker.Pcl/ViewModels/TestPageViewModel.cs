@@ -12,6 +12,8 @@ namespace Athena.ImagePicker.Pcl.ViewModels
 		private readonly ICommand _selectPhotoCommand;
 		private readonly ICommand _gotoImageViewCommand;
 
+		private readonly ICommand _panCommand;
+
 		private IImagePicker _imagePicker;
 		private string _message;
 
@@ -20,6 +22,8 @@ namespace Athena.ImagePicker.Pcl.ViewModels
 		{
 			_selectPhotoCommand = new Command (SelectPhotoCommandExecute);
 			_gotoImageViewCommand = new Command (GotoImageViewCommandExecute);
+
+			_panCommand = new Command (PanCommandExecute);
 		}
 
 		public ICommand SelectPhotoCommand 
@@ -33,6 +37,13 @@ namespace Athena.ImagePicker.Pcl.ViewModels
 		{
 			get { 
 				return _gotoImageViewCommand;
+			}
+		}
+
+		public ICommand PanCommand 
+		{
+			get {
+				return _panCommand;
 			}
 		}
 
@@ -75,6 +86,11 @@ namespace Athena.ImagePicker.Pcl.ViewModels
 		private void GotoImageViewCommandExecute(object args)
 		{
 			View.NavigateTo (new ImageView ());
+		}
+
+		private void PanCommandExecute(object args) 
+		{
+			Message = "Pan";
 		}
 	}
 }

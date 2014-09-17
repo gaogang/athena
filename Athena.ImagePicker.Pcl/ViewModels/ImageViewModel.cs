@@ -23,10 +23,7 @@ namespace Athena.ImagePicker.Pcl.ViewModels
 			_backCommand = new Command (BackCommandExecute);
 			_confirmCommand = new Command (ConfirmCommandExecute);
 
-			_leftMask = new RelativeBoundary (0.0, 0.0, 0.2, 1.0);
-			_rightMask = new RelativeBoundary (0.8, 0.0, 0.2, 1.0);
-			_topMask = new RelativeBoundary (0.2, 0.0, 0.6, 0.2);
-			_bottomMask = new RelativeBoundary (0.2, 0.8, 0.6, 0.2);
+			InitialiseMasks ();
 		}
 
 		public ICommand BackCommand 
@@ -241,6 +238,33 @@ namespace Athena.ImagePicker.Pcl.ViewModels
 				OnPropertyChanged ("ImageHeight");
 				OnPropertyChanged ("LeftMaskConstraint");
 			}
+		}
+
+		private void InitialiseMasks()
+		{
+			_leftMask = new RelativeBoundary (
+				0.0, 
+				0.0, 
+				0.2, 
+				1.0);
+
+			_rightMask = new RelativeBoundary (
+				0.8, 
+				0.0, 
+				0.2, 
+				1.0);
+
+			_topMask = new RelativeBoundary (
+				0.2, 
+				0.0, 
+				0.6, 
+				0.2);
+
+			_bottomMask = new RelativeBoundary (
+				0.2, 
+				0.8, 
+				0.6, 
+				0.2);
 		}
 
 		private void BackCommandExecute(object args)
