@@ -19,12 +19,12 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
     <ConsolePause>false</ConsolePause>
-    <MtouchLink>None</MtouchLink>
     <CodesignEntitlements>Entitlements.plist</CodesignEntitlements>
     <MtouchDebug>true</MtouchDebug>
     <MtouchI18n>
     </MtouchI18n>
     <MtouchArch>i386</MtouchArch>
+    <MtouchLink>None</MtouchLink>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|iPhoneSimulator' ">
     <DebugType>full</DebugType>
@@ -48,6 +48,12 @@
     <CodesignEntitlements>Entitlements.plist</CodesignEntitlements>
     <MtouchDebug>true</MtouchDebug>
     <CodesignKey>iPhone Developer</CodesignKey>
+    <IpaPackageName>
+    </IpaPackageName>
+    <MtouchLink>Full</MtouchLink>
+    <MtouchI18n>
+    </MtouchI18n>
+    <MtouchArch>ARMv7</MtouchArch>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|iPhone' ">
     <DebugType>full</DebugType>
@@ -130,6 +136,10 @@
     <ProjectReference Include="..\Athena.ImagePicker.iOS\Athena.ImagePicker.iOS.csproj">
       <Project>{74EF075A-42E5-44CA-947C-13575B6C42EF}</Project>
       <Name>Athena.ImagePicker.iOS</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Athena.Core.Pcl\Athena.Core.Pcl.csproj">
+      <Project>{D863B695-D01C-42F4-91CE-DF923514A74D}</Project>
+      <Name>Athena.Core.Pcl</Name>
     </ProjectReference>
   </ItemGroup>
 </Project>

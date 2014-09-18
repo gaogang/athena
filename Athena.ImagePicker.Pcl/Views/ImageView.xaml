@@ -3,7 +3,7 @@
                  xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
                  xmlns:local="clr-namespace:Athena.ImagePicker.Pcl.ViewModels;assembly=Athena.ImagePicker.Pcl"
                  xmlns:ex="clr-namespace:Athena.ImagePicker.Pcl.Extensions;assembly=Athena.ImagePicker.Pcl"
-                 xmlns:layouts="clr-namespace:Athena.ImagePicker.Pcl.Layouts;assembly=Athena.ImagePicker.Pcl"
+                 xmlns:layouts="clr-namespace:Athena.Core.Pcl.Layouts;assembly=Athena.Core.Pcl"
                  x:Class="Athena.ImagePicker.Pcl.Views.ImageView">
     <ContentPageBase.Padding>
     	<OnPlatform x:TypeArguments="Thickness">

@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using Xamarin.Forms;
 
-namespace Athena.ImagePicker.Pcl.Layouts
+namespace Athena.Core.Pcl.Layouts
 {
 	public class BindableRelativeLayout : Layout<View>
 	{
@@ -156,8 +156,6 @@ namespace Athena.ImagePicker.Pcl.Layouts
 		}
 
 		#endregion
-
-
 	}
 }
 

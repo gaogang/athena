@@ -50,7 +50,6 @@
     <Compile Include="Views\ContentPageBase.cs" />
     <Compile Include="ViewModels\IViewModel.cs" />
     <Compile Include="ImageObject.cs" />
-    <Compile Include="Layouts\BindableRelativeLayout.cs" />
     <Compile Include="RelativeBoundary.cs" />
     <Compile Include="CustomControls\GestureAwareContentView.cs" />
   </ItemGroup>
@@ -60,7 +59,6 @@
     <Folder Include="Views\" />
     <Folder Include="ViewModels\" />
     <Folder Include="Services\" />
-    <Folder Include="Layouts\" />
     <Folder Include="CustomControls\" />
   </ItemGroup>
   <ItemGroup>
@@ -99,5 +97,11 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Athena.Core.Pcl\Athena.Core.Pcl.csproj">
+      <Project>{D863B695-D01C-42F4-91CE-DF923514A74D}</Project>
+      <Name>Athena.Core.Pcl</Name>
+    </ProjectReference>
   </ItemGroup>
 </Project>
