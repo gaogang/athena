@@ -9,15 +9,10 @@ namespace Athena.Core.Pcl.Layouts
 	{
 		public static BindableProperty ElementNameProperty = BindableProperty.CreateAttached<BindableRelativeLayout, string>(
 			bindable => GetElementName(bindable),
-			string.Empty, 
-			BindingMode.OneWay, 
-			null, 
-			(bindable, oldValue, newValue) => OnElementNameChanged(bindable, oldValue, newValue), 
-			null, 
-			null);
+			string.Empty);
 
-		public static BindableProperty XFactorProperty = BindableProperty.CreateAttached<BindableRelativeLayout, double>(
-			bindable => GetXFactor(bindable),
+		public static BindableProperty XProperty = BindableProperty.CreateAttached<BindableRelativeLayout, double>(
+			bindable => GetX(bindable),
 			0.0, 
 			BindingMode.OneWay, 
 			null, 
@@ -25,8 +20,8 @@ namespace Athena.Core.Pcl.Layouts
 			null, 
 			null);
 
-		public static BindableProperty YFactorProperty = BindableProperty.CreateAttached<BindableRelativeLayout, double>(
-			bindable => GetYFactor(bindable),
+		public static BindableProperty YProperty = BindableProperty.CreateAttached<BindableRelativeLayout, double>(
+			bindable => GetY(bindable),
 			0.0, 
 			BindingMode.OneWay, 
 			null, 
@@ -34,8 +29,8 @@ namespace Athena.Core.Pcl.Layouts
 			null, 
 			null);
 
-		public static BindableProperty WidthFactorProperty = BindableProperty.CreateAttached<BindableRelativeLayout, double>(
-			bindable => GetWidthFactor(bindable),
+		public static BindableProperty WidthProperty = BindableProperty.CreateAttached<BindableRelativeLayout, double>(
+			bindable => GetWidth(bindable),
 			1.0, 
 			BindingMode.OneWay, 
 			null, 
@@ -43,8 +38,8 @@ namespace Athena.Core.Pcl.Layouts
 			null, 
 			null);
 
-		public static BindableProperty HeightFactorProperty = BindableProperty.CreateAttached<BindableRelativeLayout, double>(
-			bindable => GetHeightFactor(bindable),
+		public static BindableProperty HeightProperty = BindableProperty.CreateAttached<BindableRelativeLayout, double>(
+			bindable => GetHeight(bindable),
 			1.0, 
 			BindingMode.OneWay, 
 			null, 
@@ -62,48 +57,44 @@ namespace Athena.Core.Pcl.Layouts
 			obj.SetValue (ElementNameProperty, value);
 		}
 
-		public static double GetXFactor(BindableObject obj) 
+		public static double GetX(BindableObject obj) 
 		{
-			return (double)obj.GetValue (XFactorProperty);
+			return (double)obj.GetValue (XProperty);
 		}
 
-		public static void SetXFactor(BindableObject obj, double value)
+		public static void SetX(BindableObject obj, double value)
 		{
-			obj.SetValue (XFactorProperty, value);
+			obj.SetValue (XProperty, value);
 		}
 
-		public static double GetYFactor(BindableObject obj) 
+		public static double GetY(BindableObject obj) 
 		{
-			return (double)obj.GetValue (YFactorProperty);
+			return (double)obj.GetValue (YProperty);
 		}
 
-		public static void SetYFactor(BindableObject obj, double value)
+		public static void SetY(BindableObject obj, double value)
 		{
-			obj.SetValue (YFactorProperty, value);
+			obj.SetValue (YProperty, value);
 		}
 
-		public static double GetWidthFactor(BindableObject obj) 
+		public static double GetWidth(BindableObject obj) 
 		{
-			return (double)obj.GetValue (WidthFactorProperty);
+			return (double)obj.GetValue (WidthProperty);
 		}
 
-		public static void SetWidthFactor(BindableObject obj, double value)
+		public static void SetWidth(BindableObject obj, double value)
 		{
-			obj.SetValue (WidthFactorProperty, value);
+			obj.SetValue (WidthProperty, value);
 		}
 
-		public static double GetHeightFactor(BindableObject obj) 
+		public static double GetHeight(BindableObject obj) 
 		{
-			return (double)obj.GetValue (HeightFactorProperty);
+			return (double)obj.GetValue (HeightProperty);
 		}
 
-		public static void SetHeightFactor(BindableObject obj, double value)
+		public static void SetHeight(BindableObject obj, double value)
 		{
-			obj.SetValue (HeightFactorProperty, value);
-		}
-
-		private static void OnElementNameChanged(BindableObject obj, string oldValue, string newValue)
-		{
+			obj.SetValue (HeightProperty, value);
 		}
 
 		private static void OnLayoutChanged(BindableObject obj, double oldValue, double newValue)
@@ -139,10 +130,10 @@ namespace Athena.Core.Pcl.Layouts
 			foreach (var dependency in dependencies) {
 				var elementName = GetElementName (dependency);
 
-				var xFactor = GetXFactor (dependency);
-				var yFactor = GetYFactor (dependency);
-				var weigthFactor = GetWidthFactor (dependency);
-				var heightFactor = GetHeightFactor (dependency);
+				var xFactor = GetX (dependency);
+				var yFactor = GetY (dependency);
+				var weigthFactor = GetWidth (dependency);
+				var heightFactor = GetHeight (dependency);
 
 				var master = dependency.FindByName<View> (elementName);
 				var masterRegion = new Rectangle (

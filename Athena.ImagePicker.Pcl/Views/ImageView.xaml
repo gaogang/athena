@@ -65,37 +65,37 @@
 				             </controls:GestureAwareContentView>
 
 					            <BoxView x:Name="LeftMask"
-					                     BackgroundColor="Blue"
+					                     BackgroundColor="Black"
 					                     Opacity="0.3" 
 					                     layouts:BindableRelativeLayout.ElementName="imageViewer"
-					                     layouts:BindableRelativeLayout.WidthFactor="{Binding LeftMaskWidthFactor}"
+					                     layouts:BindableRelativeLayout.Width="{Binding LeftMaskWidthFactor}"
 					                     />
 
 								<BoxView x:Name="RightMask"
-					                     BackgroundColor="Blue"
+					                     BackgroundColor="Black"
 					                     Opacity="0.3" 
 					                     layouts:BindableRelativeLayout.ElementName="imageViewer"
-					                     layouts:BindableRelativeLayout.XFactor="{Binding RightMaskXFactor}"
-					                     layouts:BindableRelativeLayout.WidthFactor="{Binding RightMaskWidthFactor}"
+					                     layouts:BindableRelativeLayout.X="{Binding RightMaskXFactor}"
+					                     layouts:BindableRelativeLayout.Width="{Binding RightMaskWidthFactor}"
 					                     />				                 
 
 								<BoxView x:Name="TopMask"
-					                     BackgroundColor="Blue"
+					                     BackgroundColor="Black"
 					                     Opacity="0.3" 
 					                     layouts:BindableRelativeLayout.ElementName="imageViewer"
-					                     layouts:BindableRelativeLayout.XFactor="{Binding TopMaskXFactor}"
-					                     layouts:BindableRelativeLayout.WidthFactor="{Binding TopMaskWidthFactor}"
-					                     layouts:BindableRelativeLayout.HeightFactor="{Binding TopMaskHeightFactor}"
+					                     layouts:BindableRelativeLayout.X="{Binding TopMaskXFactor}"
+					                     layouts:BindableRelativeLayout.Width="{Binding TopMaskWidthFactor}"
+					                     layouts:BindableRelativeLayout.Height="{Binding TopMaskHeightFactor}"
 					                     />	
 
 								<BoxView x:Name="BottomMask"
-					                     BackgroundColor="Blue"
+					                     BackgroundColor="Black"
 					                     Opacity="0.3" 
 					                     layouts:BindableRelativeLayout.ElementName="imageViewer"
-					                     layouts:BindableRelativeLayout.XFactor="{Binding BottomMaskXFactor}"
-					                     layouts:BindableRelativeLayout.YFactor="{Binding BottomMaskYFactor}"
-					                     layouts:BindableRelativeLayout.WidthFactor="{Binding BottomMaskWidthFactor}"
-					                     layouts:BindableRelativeLayout.HeightFactor="{Binding BottomMaskHeightFactor}"
+					                     layouts:BindableRelativeLayout.X="{Binding BottomMaskXFactor}"
+					                     layouts:BindableRelativeLayout.Y="{Binding BottomMaskYFactor}"
+					                     layouts:BindableRelativeLayout.Width="{Binding BottomMaskWidthFactor}"
+					                     layouts:BindableRelativeLayout.Height="{Binding BottomMaskHeightFactor}"
 					                     />	
             </layouts:BindableRelativeLayout>
 		</Grid>

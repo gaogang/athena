@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Windows.Input;
 using Athena.Core.Pcl.Gesture;
+using Athena.Core.Pcl.Layouts;
 using Microsoft.Practices.Unity;
 using Xamarin.Forms;
 

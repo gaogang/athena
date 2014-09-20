@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Athena.ImagePicker.Pcl
+namespace Athena.Core.Pcl.Layouts
 {
 	public class RelativeBoundary
 	{
