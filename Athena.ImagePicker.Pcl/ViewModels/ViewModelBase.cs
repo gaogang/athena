@@ -1,5 +1,6 @@
 ﻿using System;
 using System.ComponentModel;
+using System.Linq.Expressions;
 using Athena.ImagePicker.Pcl.Views;
 
 namespace Athena.ImagePicker.Pcl.ViewModels
@@ -25,7 +26,19 @@ namespace Athena.ImagePicker.Pcl.ViewModels
 
 		#endregion
 
-		protected void OnPropertyChanged(string propertyName)
+		protected void OnPropertyChanged(Expression<Func<object>> expression)
+		{
+			var body = expression.Body as MemberExpression;
+
+			if (body == null) {
+				var ubody = (UnaryExpression)expression.Body;
+				body = ubody.Operand as MemberExpression;
+			}
+
+			OnPropertyChanged(body.Member.Name);
+		}
+
+		private void OnPropertyChanged(string propertyName)
 		{
 			if (PropertyChanged == null) 
 			{

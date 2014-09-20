@@ -58,7 +58,7 @@ namespace Athena.ImagePicker.Pcl.ViewModels
 				}
 
 				_message = value;
-				OnPropertyChanged ("Message");
+				OnPropertyChanged (() => Message);
 			}
 		}
 

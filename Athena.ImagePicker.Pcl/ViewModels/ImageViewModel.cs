@@ -158,7 +158,7 @@ namespace Athena.ImagePicker.Pcl.ViewModels
 			set {
 				_imageWidth = value;
 
-				OnPropertyChanged ("Imagewidth");
+				OnPropertyChanged (() => this.ImageWidth);
 			}
 		}
 
@@ -170,7 +170,7 @@ namespace Athena.ImagePicker.Pcl.ViewModels
 			set {
 				_imageHeight = value;
 
-				OnPropertyChanged ("ImageHeight");
+				OnPropertyChanged (() => this.ImageHeight);
 			}
 		}
 
@@ -223,16 +223,16 @@ namespace Athena.ImagePicker.Pcl.ViewModels
 
 			Roi = roi;
 
-			OnPropertyChanged ("LeftMaskWidthFactor");
-			OnPropertyChanged ("RightMaskWidthFactor");
-			OnPropertyChanged ("RightMaskXFactor");
-			OnPropertyChanged ("TopMaskXFactor");
-			OnPropertyChanged ("TopMaskWidthFactor");
-			OnPropertyChanged ("TopMaskHeightFactor");
-			OnPropertyChanged ("BottomMaskXFactor");
-			OnPropertyChanged ("BottomMaskYFactor");
-			OnPropertyChanged ("BottomMaskWidthFactor");
-			OnPropertyChanged ("BottomMaskHeightFactor");
+			OnPropertyChanged (() => LeftMaskWidthFactor);
+			OnPropertyChanged (() => RightMaskWidthFactor);
+			OnPropertyChanged (() => RightMaskXFactor);
+			OnPropertyChanged (() => TopMaskXFactor);
+			OnPropertyChanged (() => TopMaskWidthFactor);
+			OnPropertyChanged (() => TopMaskHeightFactor);
+			OnPropertyChanged (() => BottomMaskXFactor);
+			OnPropertyChanged (() => BottomMaskYFactor);
+			OnPropertyChanged (() => BottomMaskWidthFactor);
+			OnPropertyChanged (() => BottomMaskHeightFactor);
 		}
 	}
 }
