@@ -2,15 +2,12 @@
 <ContentPageBase xmlns="http://xamarin.com/schemas/2014/forms" 
                  xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
                  xmlns:local="clr-namespace:Athena.ImagePicker.Pcl.ViewModels;assembly=Athena.ImagePicker.Pcl"
-                 xmlns:controls="clr-namespace:Athena.ImagePicker.Pcl.CustomControls;assembly=Athena.ImagePicker.Pcl"
                  x:Class="Athena.ImagePicker.Pcl.Views.TestView">
 	<ContentPageBase.BindingContext>
 		<local:TestPageViewModel />
 	</ContentPageBase.BindingContext>
 	<ContentPageBase.Content>
-		<controls:GestureAwareContentView Pan="{Binding PanCommand}"
-										  HorizontalOptions="FillAndExpand"
-										  VerticalOptions="FillAndExpand"> 
+		
 			<StackLayout Orientation="Vertical" VerticalOptions="Center">
 				<Button Text="Select a photo" 
 				        Command="{Binding SelectPhotoCommand}"
@@ -20,6 +17,6 @@
 				    />
 				<Label Text="{Binding Message}" HorizontalOptions="CenterAndExpand" />
 		    </StackLayout>
-		</controls:GestureAwareContentView>
+
 	</ContentPageBase.Content>
 </ContentPageBase>

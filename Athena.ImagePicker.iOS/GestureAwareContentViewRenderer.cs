@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Windows.Input;
+using Athena.Core.Pcl.Controls;
 using Athena.Core.Pcl.Gesture;
-using Athena.ImagePicker.Pcl.CustomControls;
 using MonoTouch.UIKit;
 using Xamarin.Forms;
 using Xamarin.Forms.Platform.iOS;

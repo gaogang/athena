@@ -51,7 +51,6 @@
     <Compile Include="ViewModels\IViewModel.cs" />
     <Compile Include="ImageObject.cs" />
     <Compile Include="RelativeBoundary.cs" />
-    <Compile Include="CustomControls\GestureAwareContentView.cs" />
     <Compile Include="ImageMask.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\Portable\$(TargetFrameworkVersion)\Microsoft.Portable.CSharp.targets" />
@@ -60,7 +59,6 @@
     <Folder Include="Views\" />
     <Folder Include="ViewModels\" />
     <Folder Include="Services\" />
-    <Folder Include="CustomControls\" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Views\TestView.xaml">

@@ -2,7 +2,7 @@
 using System.Windows.Input;
 using Xamarin.Forms;
 
-namespace Athena.ImagePicker.Pcl.CustomControls
+namespace Athena.Core.Pcl.Controls
 {
 	public class GestureAwareContentView : ContentView
 	{
