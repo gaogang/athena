@@ -3,6 +3,7 @@
                  xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
                  xmlns:local="clr-namespace:Athena.ImagePicker.Pcl.ViewModels;assembly=Athena.ImagePicker.Pcl"
                  xmlns:ex="clr-namespace:Athena.ImagePicker.Pcl.Extensions;assembly=Athena.ImagePicker.Pcl"
+                 xmlns:controls="clr-namespace:Athena.ImagePicker.Pcl.CustomControls;assembly=Athena.ImagePicker.Pcl"
                  xmlns:layouts="clr-namespace:Athena.Core.Pcl.Layouts;assembly=Athena.Core.Pcl"
                  x:Class="Athena.ImagePicker.Pcl.Views.ImageView">
     <ContentPageBase.Padding>
@@ -52,48 +53,50 @@
 			                HorizontalOptions="Fill"
 				            VerticalOptions="Fill">
 
-				            <Image x:Name="imageViewer"
-							       HorizontalOptions="CenterAndExpand"
-								   VerticalOptions="CenterAndExpand"
-								   Aspect="AspectFit"
-								   Source="{Binding Image}" 
-								   Width="{Binding ImageWidth}"
-								   Height="{Binding ImageHeight}"
-								   />
+				            <controls:GestureAwareContentView Pan="{Binding PanCommand}">
+					            <Image x:Name="imageViewer"
+								       HorizontalOptions="CenterAndExpand"
+									   VerticalOptions="CenterAndExpand"
+									   Aspect="AspectFit"
+									   Source="{Binding Image}" 
+									   Width="{Binding ImageWidth}"
+									   Height="{Binding ImageHeight}"
+									   />
+				             </controls:GestureAwareContentView>
 
-				            <BoxView x:Name="LeftMask"
-				                     BackgroundColor="Blue"
-				                     Opacity="0.3" 
-				                     layouts:BindableRelativeLayout.ElementName="imageViewer"
-				                     layouts:BindableRelativeLayout.WidthFactor="{Binding LeftMaskWidthFactor}"
-				                     />
+					            <BoxView x:Name="LeftMask"
+					                     BackgroundColor="Blue"
+					                     Opacity="0.3" 
+					                     layouts:BindableRelativeLayout.ElementName="imageViewer"
+					                     layouts:BindableRelativeLayout.WidthFactor="{Binding LeftMaskWidthFactor}"
+					                     />
 
-							<BoxView x:Name="RightMask"
-				                     BackgroundColor="Blue"
-				                     Opacity="0.3" 
-				                     layouts:BindableRelativeLayout.ElementName="imageViewer"
-				                     layouts:BindableRelativeLayout.XFactor="{Binding RightMaskXFactor}"
-				                     layouts:BindableRelativeLayout.WidthFactor="{Binding RightMaskWidthFactor}"
-				                     />				                 
+								<BoxView x:Name="RightMask"
+					                     BackgroundColor="Blue"
+					                     Opacity="0.3" 
+					                     layouts:BindableRelativeLayout.ElementName="imageViewer"
+					                     layouts:BindableRelativeLayout.XFactor="{Binding RightMaskXFactor}"
+					                     layouts:BindableRelativeLayout.WidthFactor="{Binding RightMaskWidthFactor}"
+					                     />				                 
 
-							<BoxView x:Name="TopMask"
-				                     BackgroundColor="Blue"
-				                     Opacity="0.3" 
-				                     layouts:BindableRelativeLayout.ElementName="imageViewer"
-				                     layouts:BindableRelativeLayout.XFactor="{Binding TopMaskXFactor}"
-				                     layouts:BindableRelativeLayout.WidthFactor="{Binding TopMaskWidthFactor}"
-				                     layouts:BindableRelativeLayout.HeightFactor="{Binding TopMaskHeightFactor}"
-				                     />	
+								<BoxView x:Name="TopMask"
+					                     BackgroundColor="Blue"
+					                     Opacity="0.3" 
+					                     layouts:BindableRelativeLayout.ElementName="imageViewer"
+					                     layouts:BindableRelativeLayout.XFactor="{Binding TopMaskXFactor}"
+					                     layouts:BindableRelativeLayout.WidthFactor="{Binding TopMaskWidthFactor}"
+					                     layouts:BindableRelativeLayout.HeightFactor="{Binding TopMaskHeightFactor}"
+					                     />	
 
-							<BoxView x:Name="BottomMask"
-				                     BackgroundColor="Blue"
-				                     Opacity="0.3" 
-				                     layouts:BindableRelativeLayout.ElementName="imageViewer"
-				                     layouts:BindableRelativeLayout.XFactor="{Binding BottomMaskXFactor}"
-				                     layouts:BindableRelativeLayout.YFactor="{Binding BottomMaskYFactor}"
-				                     layouts:BindableRelativeLayout.WidthFactor="{Binding BottomMaskWidthFactor}"
-				                     layouts:BindableRelativeLayout.HeightFactor="{Binding BottomMaskHeightFactor}"
-				                     />		
+								<BoxView x:Name="BottomMask"
+					                     BackgroundColor="Blue"
+					                     Opacity="0.3" 
+					                     layouts:BindableRelativeLayout.ElementName="imageViewer"
+					                     layouts:BindableRelativeLayout.XFactor="{Binding BottomMaskXFactor}"
+					                     layouts:BindableRelativeLayout.YFactor="{Binding BottomMaskYFactor}"
+					                     layouts:BindableRelativeLayout.WidthFactor="{Binding BottomMaskWidthFactor}"
+					                     layouts:BindableRelativeLayout.HeightFactor="{Binding BottomMaskHeightFactor}"
+					                     />	
             </layouts:BindableRelativeLayout>
 		</Grid>
 	</ContentPageBase.Content>

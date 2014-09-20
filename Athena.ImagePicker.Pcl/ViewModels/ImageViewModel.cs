@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Windows.Input;
+using Athena.Core.Pcl.Gesture;
 using Microsoft.Practices.Unity;
 using Xamarin.Forms;
 
@@ -10,20 +11,27 @@ namespace Athena.ImagePicker.Pcl.ViewModels
 		private readonly ICommand _backCommand;
 		private readonly ICommand _confirmCommand;
 
+		private readonly ICommand _panCommand;
+
+		private readonly ImageMask _mask;
+
 		private int _imageHeight;
 		private int _imageWidth;
 
-		private RelativeBoundary _leftMask;
-		private RelativeBoundary _rightMask;
-		private RelativeBoundary _topMask;
-		private RelativeBoundary _bottomMask;
+		private RelativeBoundary _roiCache;
 
 		public ImageViewModel ()
 		{
 			_backCommand = new Command (BackCommandExecute);
 			_confirmCommand = new Command (ConfirmCommandExecute);
 
-			InitialiseMasks ();
+			_panCommand = new Command (PanCommandExecute);
+
+			_mask = new ImageMask (new RelativeBoundary (
+				0.2, 
+				0.2, 
+				0.6, 
+				0.6));
 		}
 
 		public ICommand BackCommand 
@@ -37,6 +45,13 @@ namespace Athena.ImagePicker.Pcl.ViewModels
 		{
 			get {
 				return _confirmCommand;
+			}
+		}
+
+		public ICommand PanCommand 
+		{
+			get {
+				return _panCommand;
 			}
 		}
 
@@ -54,163 +69,84 @@ namespace Athena.ImagePicker.Pcl.ViewModels
 			}
 		}
 
-		public double LeftMaskWidthFactor 
+		public RelativeBoundary Roi 
 		{
 			get {
-				return _leftMask.Width;
+				return _mask.Roi;
 			}
 
 			set {
-				if (_leftMask.Width == value) {
-					return;
-				}
+				_mask.Roi = value;
+			}
+		}
 
-				_leftMask.Width = value;
-				OnPropertyChanged ("LeftMaskWidthFactor");
+		public double LeftMaskWidthFactor 
+		{
+			get {
+				return _mask.Left.Width;
 			}
 		}
 
 		public double RightMaskWidthFactor 
 		{
 			get {
-				return _rightMask.Width;
-			}
-
-			set {
-				if (_rightMask.Width == value) {
-					return;
-				}
-
-				_rightMask.Width = value;
-				OnPropertyChanged ("RightMaskWidthFactor");
+				return _mask.Right.Width;
 			}
 		}
 
 		public double RightMaskXFactor 
 		{
 			get {
-				return _rightMask.X;
-			}
-
-			set {
-				if (_rightMask.X == value) {
-					return;
-				}
-
-				_rightMask.X = value;
-				OnPropertyChanged ("RightMaskXFactor");
+				return _mask.Right.X;
 			}
 		}
 
 		public double TopMaskXFactor 
 		{
 			get {
-				return _topMask.X;
-			}
-
-			set {
-				if (_topMask.X == value) {
-					return;
-				}
-
-				_topMask.X = value;
-				OnPropertyChanged ("TopMaskXFactor");
+				return _mask.Top.X;
 			}
 		}
 
 		public double TopMaskWidthFactor 
 		{
 			get {
-				return _topMask.Width;
-			}
-
-			set {
-				if (_topMask.Width == value) {
-					return;
-				}
-
-				_topMask.Width = value;
-				OnPropertyChanged ("TopMaskWidthFactor");
+				return _mask.Top.Width;
 			}
 		}
 
 		public double TopMaskHeightFactor 
 		{
 			get {
-				return _topMask.Height;
-			}
-
-			set {
-				if (_topMask.Height == value) {
-					return;
-				}
-
-				_topMask.Height = value;
-				OnPropertyChanged ("TopMaskHeightFactor");
+				return _mask.Top.Height;
 			}
 		}
 
 		public double BottomMaskXFactor 
 		{
 			get {
-				return _bottomMask.X;
-			}
-
-			set {
-				if (_bottomMask.X == value) {
-					return;
-				}
-
-				_bottomMask.X = value;
-				OnPropertyChanged ("BottomMaskXFactor");
+				return _mask.Bottom.X;
 			}
 		}
 
 		public double BottomMaskYFactor 
 		{
 			get {
-				return _bottomMask.Y;
-			}
-
-			set {
-				if (_bottomMask.Y == value) {
-					return;
-				}
-
-				_bottomMask.Y = value;
-				OnPropertyChanged ("BottomMaskYFactor");
+				return _mask.Bottom.Y;
 			}
 		}
 
 		public double BottomMaskWidthFactor 
 		{
 			get {
-				return _bottomMask.Width;
-			}
-
-			set {
-				if (_bottomMask.Width == value) {
-					return;
-				}
-
-				_bottomMask.Width = value;
-				OnPropertyChanged ("BottomMaskWidthFactor");
+				return _mask.Bottom.Width;
 			}
 		}
 
 		public double BottomMaskHeightFactor 
 		{
 			get {
-				return _bottomMask.Height;
-			}
-
-			set {
-				if (_bottomMask.Height == value) {
-					return;
-				}
-
-				_bottomMask.Height = value;
-				OnPropertyChanged ("BottomMaskHeightFactor");
+				return _mask.Bottom.Height;
 			}
 		}
 
@@ -223,7 +159,6 @@ namespace Athena.ImagePicker.Pcl.ViewModels
 				_imageWidth = value;
 
 				OnPropertyChanged ("Imagewidth");
-				OnPropertyChanged ("LeftMaskConstraint");
 			}
 		}
 
@@ -236,35 +171,7 @@ namespace Athena.ImagePicker.Pcl.ViewModels
 				_imageHeight = value;
 
 				OnPropertyChanged ("ImageHeight");
-				OnPropertyChanged ("LeftMaskConstraint");
 			}
-		}
-
-		private void InitialiseMasks()
-		{
-			_leftMask = new RelativeBoundary (
-				0.0, 
-				0.0, 
-				0.2, 
-				1.0);
-
-			_rightMask = new RelativeBoundary (
-				0.8, 
-				0.0, 
-				0.2, 
-				1.0);
-
-			_topMask = new RelativeBoundary (
-				0.2, 
-				0.0, 
-				0.6, 
-				0.2);
-
-			_bottomMask = new RelativeBoundary (
-				0.2, 
-				0.8, 
-				0.6, 
-				0.2);
 		}
 
 		private void BackCommandExecute(object args)
@@ -274,6 +181,58 @@ namespace Athena.ImagePicker.Pcl.ViewModels
 
 		private void ConfirmCommandExecute(object args) 
 		{
+		}
+
+		private void PanCommandExecute(object args) 
+		{
+			var gestureArgs = args as GestureArgs;
+
+			if (gestureArgs == null) {
+				throw new ArgumentException ("the args is not a type of GestureArgs");
+			}
+
+			if (gestureArgs.State == GestureState.Began) {
+				// Take a snapshot of the current ROI
+				_roiCache = Roi;
+			}
+
+			var xfactor = gestureArgs.X / _imageWidth;
+			var yfactor = gestureArgs.Y / _imageHeight;
+
+			var roi = new RelativeBoundary (
+				          _roiCache.X + xfactor, 
+				          _roiCache.Y + yfactor, 
+				          _roiCache.Width,
+				          _roiCache.Height);
+
+			if (roi.X < 0.0) {
+				roi.X = 0.0;
+			}
+
+			if (roi.Y < 0.0) {
+				roi.Y = 0.0;
+			}
+
+			if (roi.X + roi.Width > 1.0) {
+				roi.X = 1.0 - roi.Width;
+			}
+
+			if (roi.Y + roi.Height > 1.0) {
+				roi.Y = 1.0 - roi.Height;
+			}
+
+			Roi = roi;
+
+			OnPropertyChanged ("LeftMaskWidthFactor");
+			OnPropertyChanged ("RightMaskWidthFactor");
+			OnPropertyChanged ("RightMaskXFactor");
+			OnPropertyChanged ("TopMaskXFactor");
+			OnPropertyChanged ("TopMaskWidthFactor");
+			OnPropertyChanged ("TopMaskHeightFactor");
+			OnPropertyChanged ("BottomMaskXFactor");
+			OnPropertyChanged ("BottomMaskYFactor");
+			OnPropertyChanged ("BottomMaskWidthFactor");
+			OnPropertyChanged ("BottomMaskHeightFactor");
 		}
 	}
 }

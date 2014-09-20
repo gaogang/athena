@@ -57,11 +57,13 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Resources\" />
+    <Folder Include="Extensions\" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ImagePickerProvider.cs" />
     <Compile Include="GestureAwareContentViewRenderer.cs" />
+    <Compile Include="Extensions\UIGestureRecognizerStateExtension.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.MonoTouch.CSharp.targets" />
   <Import Project="..\packages\Xamarin.Forms.1.2.2.6243\build\portable-win+net45+wp80+MonoAndroid10+MonoTouch10\Xamarin.Forms.targets" Condition="Exists('..\packages\Xamarin.Forms.1.2.2.6243\build\portable-win+net45+wp80+MonoAndroid10+MonoTouch10\Xamarin.Forms.targets')" />
@@ -72,6 +74,10 @@
     <ProjectReference Include="..\Athena.ImagePicker.Pcl\Athena.ImagePicker.Pcl.csproj">
       <Project>{2E898FDB-1EA1-4E9E-B393-E107AD5ECCAF}</Project>
       <Name>Athena.ImagePicker.Pcl</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Athena.Core.Pcl\Athena.Core.Pcl.csproj">
+      <Project>{D863B695-D01C-42F4-91CE-DF923514A74D}</Project>
+      <Name>Athena.Core.Pcl</Name>
     </ProjectReference>
   </ItemGroup>
 </Project>

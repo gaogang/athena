@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Windows.Input;
+using Athena.Core.Pcl.Gesture;
 using Athena.ImagePicker.Pcl.CustomControls;
 using MonoTouch.UIKit;
 using Xamarin.Forms;
@@ -40,31 +41,34 @@ namespace Athena.ImagePicker.iOS
 			}
 
 			if (e.OldElement == null) {
-				var view = e.NewElement;
+				var gestureView = e.NewElement;
 
 				_longPressGestureRecognizer = new UILongPressGestureRecognizer (
 					() => {
-						ExecuteCommand(view.LongPress);
+						ExecuteCommand(gestureView.LongPress);
 					});
 
 				_pinchGestureRecognizer = new UIPinchGestureRecognizer (
-					() => {
-						ExecuteCommand(view.Pinch);
+					sender => {
+						ExecuteCommand(gestureView.Pinch);
 					});
 
 				_panGestureRecognizer = new UIPanGestureRecognizer (
-					() => {
-						ExecuteCommand(view.Pan);
+					sender => {
+						var offset = sender.TranslationInView(NativeView);
+
+						ExecuteCommand(gestureView.Pan, 
+							new GestureArgs(sender.State.ToGestureState(), offset.X, offset.Y));
 					});
 
 				_swipeGestureRecognizer = new UISwipeGestureRecognizer (
 					() => {
-						ExecuteCommand(view.Swipe);
+						ExecuteCommand(gestureView.Swipe);
 					});
 
 				_rotationGestureRecognizer = new UIRotationGestureRecognizer (
 					() => {
-						ExecuteCommand (view.Rotate);
+						ExecuteCommand (gestureView.Rotate);
 					});
 
 				AddGestureRecognizer (_longPressGestureRecognizer);
@@ -75,11 +79,11 @@ namespace Athena.ImagePicker.iOS
 			}
 		}
 
-		private static void ExecuteCommand(ICommand command) 
+		private static void ExecuteCommand(ICommand command, object parameter = null) 
 		{
 			if (command != null &&
-				command.CanExecute (null)) {
-				command.Execute (null);
+				command.CanExecute (parameter)) {
+				command.Execute (parameter);
 			}
 		}
 	}
