@@ -50,7 +50,10 @@ namespace Athena.ImagePicker.iOS
 
 				_pinchGestureRecognizer = new UIPinchGestureRecognizer (
 					sender => {
-						ExecuteCommand(gestureView.Pinch);
+						var scale = sender.Scale;
+
+						ExecuteCommand(gestureView.Pinch, 
+							new GestureScale(sender.State.ToGestureState(), scale));
 					});
 
 				_panGestureRecognizer = new UIPanGestureRecognizer (
@@ -58,7 +61,7 @@ namespace Athena.ImagePicker.iOS
 						var offset = sender.TranslationInView(NativeView);
 
 						ExecuteCommand(gestureView.Pan, 
-							new GestureArgs(sender.State.ToGestureState(), offset.X, offset.Y));
+							new GestureOffset(sender.State.ToGestureState(), offset.X, offset.Y));
 					});
 
 				_swipeGestureRecognizer = new UISwipeGestureRecognizer (
@@ -79,7 +82,7 @@ namespace Athena.ImagePicker.iOS
 			}
 		}
 
-		private static void ExecuteCommand(ICommand command, object parameter = null) 
+		private static void ExecuteCommand(ICommand command, GestureArgs parameter = null) 
 		{
 			if (command != null &&
 				command.CanExecute (parameter)) {
