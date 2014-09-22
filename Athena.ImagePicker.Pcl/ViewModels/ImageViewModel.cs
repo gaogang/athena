@@ -4,6 +4,7 @@ using System.Linq;
 using System.Windows.Input;
 using Athena.Core.Pcl.Gesture;
 using Athena.Core.Pcl.Layouts;
+using Athena.Core.Pcl.ViewModels;
 using Microsoft.Practices.Unity;
 using Xamarin.Forms;
 

@@ -3,7 +3,7 @@ using Athena.Core.Pcl.Views;
 
 namespace Athena.Core.Pcl.ViewModels
 {
-	internal interface IViewModel
+	public interface IViewModel
 	{
 		IContentPageBase View { get; set; }
 	}

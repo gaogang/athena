@@ -26,11 +26,6 @@ namespace Athena.ImagePicker.Pcl
 			}
 		}
 
-		public static Page GetMainPage ()
-		{	
-			return new TestView ();
-		}
-
 		public static void Intitialise()
 		{
 			Container.RegisterType<IImagePicker, ImagePicker> (new ContainerControlledLifetimeManager());

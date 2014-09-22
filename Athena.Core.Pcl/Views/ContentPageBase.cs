@@ -12,7 +12,7 @@ namespace Athena.Core.Pcl.Views
 			NavigationPage.SetHasNavigationBar (this, false);
 		}
 
-		internal IViewModel ViewModel
+		public IViewModel ViewModel
 		{
 			get {
 				return BindingContext as IViewModel;

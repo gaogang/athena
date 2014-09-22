@@ -35,20 +35,12 @@
     <Compile Include="IImagePicker.cs" />
     <Compile Include="IImagePickerProvider.cs" />
     <Compile Include="ImagePicker.cs" />
-    <Compile Include="Views\TestView.xaml.cs">
-      <DependentUpon>TestView.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="ViewModels\TestPageViewModel.cs" />
-    <Compile Include="ViewModels\ViewModelBase.cs" />
     <Compile Include="Views\ImageView.xaml.cs">
       <DependentUpon>ImageView.xaml</DependentUpon>
     </Compile>
     <Compile Include="ViewModels\ImageViewModel.cs" />
     <Compile Include="Services\ImageService.cs" />
     <Compile Include="Services\IImageService.cs" />
-    <Compile Include="Views\IContentPageBase.cs" />
-    <Compile Include="Views\ContentPageBase.cs" />
-    <Compile Include="ViewModels\IViewModel.cs" />
     <Compile Include="ImageObject.cs" />
     <Compile Include="ImageMask.cs" />
   </ItemGroup>
@@ -60,9 +52,6 @@
     <Folder Include="Services\" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Views\TestView.xaml">
-      <Generator>MSBuild:Compile</Generator>
-    </EmbeddedResource>
     <EmbeddedResource Include="Views\ImageView.xaml">
       <Generator>MSBuild:Compile</Generator>
     </EmbeddedResource>

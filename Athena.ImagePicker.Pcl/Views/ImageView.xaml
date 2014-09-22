@@ -1,12 +1,13 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
-<ContentPageBase xmlns="http://xamarin.com/schemas/2014/forms" 
+<views:ContentPageBase xmlns="http://xamarin.com/schemas/2014/forms" 
                  xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
                  xmlns:local="clr-namespace:Athena.ImagePicker.Pcl.ViewModels;assembly=Athena.ImagePicker.Pcl"
                  xmlns:ex="clr-namespace:Athena.ImagePicker.Pcl.Extensions;assembly=Athena.ImagePicker.Pcl"
                  xmlns:controls="clr-namespace:Athena.Core.Pcl.Controls;assembly=Athena.Core.Pcl"
                  xmlns:layouts="clr-namespace:Athena.Core.Pcl.Layouts;assembly=Athena.Core.Pcl"
+                 xmlns:views="clr-namespace:Athena.Core.Pcl.Views;assembly=Athena.Core.Pcl"
                  x:Class="Athena.ImagePicker.Pcl.Views.ImageView">
-    <ContentPageBase.Padding>
+    <views:ContentPageBase.Padding>
     	<OnPlatform x:TypeArguments="Thickness">
 	        <OnPlatform.iOS>
 	          0, 20, 0, 0
@@ -18,13 +19,13 @@
 	          0, 0, 0, 0
 	        </OnPlatform.WinPhone>
       	</OnPlatform>
-	</ContentPageBase.Padding>
+	</views:ContentPageBase.Padding>
 
-    <ContentPageBase.BindingContext>
+    <views:ContentPageBase.BindingContext>
 		<local:ImageViewModel />
-	</ContentPageBase.BindingContext>
+	</views:ContentPageBase.BindingContext>
 	
-	<ContentPageBase.Content>
+	<views:ContentPageBase.Content>
 		<Grid>
 			<Grid.RowDefinitions>
 				<RowDefinition Height="auto" />
@@ -101,5 +102,5 @@
 
             </layouts:BindableRelativeLayout>
 		</Grid>
-	</ContentPageBase.Content>
-</ContentPageBase>
+	</views:ContentPageBase.Content>
+</views:ContentPageBase>

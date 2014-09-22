@@ -1,11 +1,11 @@
 ﻿using System;
 using System.ComponentModel;
 using System.Linq.Expressions;
-using Athena.ImagePicker.Pcl.Views;
+using Athena.Core.Pcl.Views;
 
-namespace Athena.ImagePicker.Pcl.ViewModels
+namespace Athena.Core.Pcl.ViewModels
 {
-	internal class ViewModelBase : IViewModel, INotifyPropertyChanged
+	public class ViewModelBase : IViewModel, INotifyPropertyChanged
 	{
 		public ViewModelBase ()
 		{
