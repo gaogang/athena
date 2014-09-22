@@ -5,10 +5,10 @@
 //
 using MonoTouch.Foundation;
 
-namespace Athena.ImagePicker.iOS.App
+namespace Athena.TestHarness.iOS.App
 {
-	[Register ("Athena_ImagePicker_iOS_AppViewController")]
-	partial class Athena_ImagePicker_iOS_AppViewController
+	[Register ("Athena_TestHarness_iOS_AppViewController")]
+	partial class Athena_TestHarness_iOS_AppViewController
 	{
 		void ReleaseDesignerOutlets ()
 		{

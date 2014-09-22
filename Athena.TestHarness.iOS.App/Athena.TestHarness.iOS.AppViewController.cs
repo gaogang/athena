@@ -4,11 +4,11 @@ using System.Drawing;
 using MonoTouch.Foundation;
 using MonoTouch.UIKit;
 
-namespace Athena.ImagePicker.iOS.App
+namespace Athena.TestHarness.iOS.App
 {
-	public partial class Athena_ImagePicker_iOS_AppViewController : UIViewController
+	public partial class Athena_TestHarness_iOS_AppViewController : UIViewController
 	{
-		public Athena_ImagePicker_iOS_AppViewController (IntPtr handle) : base (handle)
+		public Athena_TestHarness_iOS_AppViewController (IntPtr handle) : base (handle)
 		{
 		}
 

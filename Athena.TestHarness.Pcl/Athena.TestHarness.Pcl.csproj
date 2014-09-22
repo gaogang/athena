@@ -4,10 +4,10 @@
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProjectTypeGuids>{786C830F-07A1-408B-BD7F-6EE04809D6DB};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
-    <ProjectGuid>{D863B695-D01C-42F4-91CE-DF923514A74D}</ProjectGuid>
+    <ProjectGuid>{B0FF09E6-993A-4D01-BB84-6A5C97FEDB86}</ProjectGuid>
     <OutputType>Library</OutputType>
-    <RootNamespace>Athena.Core.Pcl</RootNamespace>
-    <AssemblyName>Athena.Core.Pcl</AssemblyName>
+    <RootNamespace>Athena.TestHarness.Pcl</RootNamespace>
+    <AssemblyName>Athena.TestHarness.Pcl</AssemblyName>
     <TargetFrameworkProfile>Profile78</TargetFrameworkProfile>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
   </PropertyGroup>
@@ -31,16 +31,9 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Layouts\BindableRelativeLayout.cs" />
-    <Compile Include="CoreFalseFlag.cs" />
-    <Compile Include="Gesture\GestureArgs.cs" />
-    <Compile Include="Controls\GestureAwareContentView.cs" />
-    <Compile Include="Layouts\RelativeBoundary.cs" />
-    <Compile Include="Gesture\GestureOffset.cs" />
-    <Compile Include="Gesture\GestureScale.cs" />
-    <Compile Include="Views\ContentPageBase.cs" />
-    <Compile Include="Views\IContentPageBase.cs" />
-    <Compile Include="ViewModels\IViewModel.cs" />
+    <Compile Include="Views\TestHarnessPage.xaml.cs">
+      <DependentUpon>TestHarnessPage.xaml</DependentUpon>
+    </Compile>
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\Portable\$(TargetFrameworkVersion)\Microsoft.Portable.CSharp.targets" />
   <Import Project="..\packages\Xamarin.Forms.1.2.2.6243\build\portable-win+net45+wp80+MonoAndroid10+MonoTouch10\Xamarin.Forms.targets" Condition="Exists('..\packages\Xamarin.Forms.1.2.2.6243\build\portable-win+net45+wp80+MonoAndroid10+MonoTouch10\Xamarin.Forms.targets')" />
@@ -56,10 +49,18 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Layouts\" />
-    <Folder Include="Gesture\" />
-    <Folder Include="Controls\" />
     <Folder Include="Views\" />
     <Folder Include="ViewModels\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Athena.Core.Pcl\Athena.Core.Pcl.csproj">
+      <Project>{D863B695-D01C-42F4-91CE-DF923514A74D}</Project>
+      <Name>Athena.Core.Pcl</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Views\TestHarnessPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </EmbeddedResource>
   </ItemGroup>
 </Project>

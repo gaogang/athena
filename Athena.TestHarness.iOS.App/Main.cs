@@ -6,7 +6,7 @@ using Athena.Core.Pcl;
 using MonoTouch.Foundation;
 using MonoTouch.UIKit;
 
-namespace Athena.ImagePicker.iOS.App
+namespace Athena.TestHarness.iOS.App
 {
 	public class Application
 	{

@@ -2,12 +2,15 @@
 using System.Collections.Generic;
 using System.Linq;
 
+using Athena.ImagePicker;
+using Athena.ImagePicker.iOS;
+using Athena.TestHarness.Pcl;
 using Microsoft.Practices.Unity;
 using MonoTouch.Foundation;
 using MonoTouch.UIKit;
 using Xamarin.Forms;
 
-namespace Athena.ImagePicker.iOS.App
+namespace Athena.TestHarness.iOS.App
 {
 	// The UIApplicationDelegate for the application. This class is responsible for launching the
 	// User Interface of the application, as well as listening (and optionally responding) to
@@ -51,7 +54,7 @@ namespace Athena.ImagePicker.iOS.App
 
 			Athena.ImagePicker.Pcl.App.Intitialise ();
 
-			var navigationPage = new NavigationPage (Athena.ImagePicker.Pcl.App.GetMainPage ());
+			var navigationPage = new NavigationPage (new TestHarnessPage());
 			var viewController = navigationPage.CreateViewController ();
 
 			Window = new UIWindow (UIScreen.MainScreen.Bounds);

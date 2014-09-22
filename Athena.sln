@@ -7,9 +7,11 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Athena.ImagePicker.iOS", "A
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Athena.ImagePicker.Android", "Athena.ImagePicker.Android\Athena.ImagePicker.Android.csproj", "{D8AAF936-AD5D-4B5C-8DA6-C5D801AFB2D6}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Athena.ImagePicker.iOS.App", "Athena.ImagePicker.iOS.App\Athena.ImagePicker.iOS.App.csproj", "{D28056BE-3749-49F0-9BDE-BCD998354378}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Athena.Core.Pcl", "Athena.Core.Pcl\Athena.Core.Pcl.csproj", "{D863B695-D01C-42F4-91CE-DF923514A74D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Athena.TestHarness.Pcl", "Athena.TestHarness.Pcl\Athena.TestHarness.Pcl.csproj", "{B0FF09E6-993A-4D01-BB84-6A5C97FEDB86}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Athena.TestHarness.iOS.App", "Athena.TestHarness.iOS.App\Athena.TestHarness.iOS.App.csproj", "{E1230749-9975-474A-AB0B-7650E9DB4796}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -55,22 +57,22 @@ Global
 		{74EF075A-42E5-44CA-947C-13575B6C42EF}.Release|iPhone.Build.0 = Release|Any CPU
 		{74EF075A-42E5-44CA-947C-13575B6C42EF}.Release|iPhoneSimulator.ActiveCfg = Release|Any CPU
 		{74EF075A-42E5-44CA-947C-13575B6C42EF}.Release|iPhoneSimulator.Build.0 = Release|Any CPU
-		{D28056BE-3749-49F0-9BDE-BCD998354378}.Ad-Hoc|iPhone.ActiveCfg = Ad-Hoc|iPhone
-		{D28056BE-3749-49F0-9BDE-BCD998354378}.Ad-Hoc|iPhone.Build.0 = Ad-Hoc|iPhone
-		{D28056BE-3749-49F0-9BDE-BCD998354378}.AppStore|iPhone.ActiveCfg = AppStore|iPhone
-		{D28056BE-3749-49F0-9BDE-BCD998354378}.AppStore|iPhone.Build.0 = AppStore|iPhone
-		{D28056BE-3749-49F0-9BDE-BCD998354378}.Debug|Any CPU.ActiveCfg = Debug|iPhoneSimulator
-		{D28056BE-3749-49F0-9BDE-BCD998354378}.Debug|Any CPU.Build.0 = Debug|iPhoneSimulator
-		{D28056BE-3749-49F0-9BDE-BCD998354378}.Debug|iPhone.ActiveCfg = Debug|iPhone
-		{D28056BE-3749-49F0-9BDE-BCD998354378}.Debug|iPhone.Build.0 = Debug|iPhone
-		{D28056BE-3749-49F0-9BDE-BCD998354378}.Debug|iPhoneSimulator.ActiveCfg = Debug|iPhoneSimulator
-		{D28056BE-3749-49F0-9BDE-BCD998354378}.Debug|iPhoneSimulator.Build.0 = Debug|iPhoneSimulator
-		{D28056BE-3749-49F0-9BDE-BCD998354378}.Release|Any CPU.ActiveCfg = Release|iPhoneSimulator
-		{D28056BE-3749-49F0-9BDE-BCD998354378}.Release|Any CPU.Build.0 = Release|iPhoneSimulator
-		{D28056BE-3749-49F0-9BDE-BCD998354378}.Release|iPhone.ActiveCfg = Release|iPhone
-		{D28056BE-3749-49F0-9BDE-BCD998354378}.Release|iPhone.Build.0 = Release|iPhone
-		{D28056BE-3749-49F0-9BDE-BCD998354378}.Release|iPhoneSimulator.ActiveCfg = Release|iPhoneSimulator
-		{D28056BE-3749-49F0-9BDE-BCD998354378}.Release|iPhoneSimulator.Build.0 = Release|iPhoneSimulator
+		{B0FF09E6-993A-4D01-BB84-6A5C97FEDB86}.Ad-Hoc|iPhone.ActiveCfg = Release|Any CPU
+		{B0FF09E6-993A-4D01-BB84-6A5C97FEDB86}.Ad-Hoc|iPhone.Build.0 = Release|Any CPU
+		{B0FF09E6-993A-4D01-BB84-6A5C97FEDB86}.AppStore|iPhone.ActiveCfg = Release|Any CPU
+		{B0FF09E6-993A-4D01-BB84-6A5C97FEDB86}.AppStore|iPhone.Build.0 = Release|Any CPU
+		{B0FF09E6-993A-4D01-BB84-6A5C97FEDB86}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B0FF09E6-993A-4D01-BB84-6A5C97FEDB86}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B0FF09E6-993A-4D01-BB84-6A5C97FEDB86}.Debug|iPhone.ActiveCfg = Debug|Any CPU
+		{B0FF09E6-993A-4D01-BB84-6A5C97FEDB86}.Debug|iPhone.Build.0 = Debug|Any CPU
+		{B0FF09E6-993A-4D01-BB84-6A5C97FEDB86}.Debug|iPhoneSimulator.ActiveCfg = Debug|Any CPU
+		{B0FF09E6-993A-4D01-BB84-6A5C97FEDB86}.Debug|iPhoneSimulator.Build.0 = Debug|Any CPU
+		{B0FF09E6-993A-4D01-BB84-6A5C97FEDB86}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B0FF09E6-993A-4D01-BB84-6A5C97FEDB86}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B0FF09E6-993A-4D01-BB84-6A5C97FEDB86}.Release|iPhone.ActiveCfg = Release|Any CPU
+		{B0FF09E6-993A-4D01-BB84-6A5C97FEDB86}.Release|iPhone.Build.0 = Release|Any CPU
+		{B0FF09E6-993A-4D01-BB84-6A5C97FEDB86}.Release|iPhoneSimulator.ActiveCfg = Release|Any CPU
+		{B0FF09E6-993A-4D01-BB84-6A5C97FEDB86}.Release|iPhoneSimulator.Build.0 = Release|Any CPU
 		{D863B695-D01C-42F4-91CE-DF923514A74D}.Ad-Hoc|iPhone.ActiveCfg = Release|Any CPU
 		{D863B695-D01C-42F4-91CE-DF923514A74D}.Ad-Hoc|iPhone.Build.0 = Release|Any CPU
 		{D863B695-D01C-42F4-91CE-DF923514A74D}.AppStore|iPhone.ActiveCfg = Release|Any CPU
@@ -103,8 +105,24 @@ Global
 		{D8AAF936-AD5D-4B5C-8DA6-C5D801AFB2D6}.Release|iPhone.Build.0 = Release|Any CPU
 		{D8AAF936-AD5D-4B5C-8DA6-C5D801AFB2D6}.Release|iPhoneSimulator.ActiveCfg = Release|Any CPU
 		{D8AAF936-AD5D-4B5C-8DA6-C5D801AFB2D6}.Release|iPhoneSimulator.Build.0 = Release|Any CPU
+		{E1230749-9975-474A-AB0B-7650E9DB4796}.Ad-Hoc|iPhone.ActiveCfg = Ad-Hoc|iPhone
+		{E1230749-9975-474A-AB0B-7650E9DB4796}.Ad-Hoc|iPhone.Build.0 = Ad-Hoc|iPhone
+		{E1230749-9975-474A-AB0B-7650E9DB4796}.AppStore|iPhone.ActiveCfg = AppStore|iPhone
+		{E1230749-9975-474A-AB0B-7650E9DB4796}.AppStore|iPhone.Build.0 = AppStore|iPhone
+		{E1230749-9975-474A-AB0B-7650E9DB4796}.Debug|Any CPU.ActiveCfg = Debug|iPhoneSimulator
+		{E1230749-9975-474A-AB0B-7650E9DB4796}.Debug|Any CPU.Build.0 = Debug|iPhoneSimulator
+		{E1230749-9975-474A-AB0B-7650E9DB4796}.Debug|iPhone.ActiveCfg = Debug|iPhone
+		{E1230749-9975-474A-AB0B-7650E9DB4796}.Debug|iPhone.Build.0 = Debug|iPhone
+		{E1230749-9975-474A-AB0B-7650E9DB4796}.Debug|iPhoneSimulator.ActiveCfg = Debug|iPhoneSimulator
+		{E1230749-9975-474A-AB0B-7650E9DB4796}.Debug|iPhoneSimulator.Build.0 = Debug|iPhoneSimulator
+		{E1230749-9975-474A-AB0B-7650E9DB4796}.Release|Any CPU.ActiveCfg = Release|iPhoneSimulator
+		{E1230749-9975-474A-AB0B-7650E9DB4796}.Release|Any CPU.Build.0 = Release|iPhoneSimulator
+		{E1230749-9975-474A-AB0B-7650E9DB4796}.Release|iPhone.ActiveCfg = Release|iPhone
+		{E1230749-9975-474A-AB0B-7650E9DB4796}.Release|iPhone.Build.0 = Release|iPhone
+		{E1230749-9975-474A-AB0B-7650E9DB4796}.Release|iPhoneSimulator.ActiveCfg = Release|iPhoneSimulator
+		{E1230749-9975-474A-AB0B-7650E9DB4796}.Release|iPhoneSimulator.Build.0 = Release|iPhoneSimulator
 	EndGlobalSection
 	GlobalSection(MonoDevelopProperties) = preSolution
-		StartupItem = Athena.ImagePicker.iOS.App\Athena.ImagePicker.iOS.App.csproj
+		StartupItem = Athena.TestHarness.iOS.App\Athena.TestHarness.iOS.App.csproj
 	EndGlobalSection
 EndGlobal
