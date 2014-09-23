@@ -1,8 +1,9 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
 <coreView:ContentPageBase xmlns="http://xamarin.com/schemas/2014/forms" 
                  xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+				 xmlns:viewModels="clr-namespace:Athena.TestHarness.Pcl.ViewModels;assembly=Athena.TestHarness.Pcl"
 				 xmlns:coreView="clr-namespace:Athena.Core.Pcl.Views;assembly=Athena.Core.Pcl"
-                 x:Class="Athena.TestHarness.Pcl.TestHarnessPage">
+                 x:Class="Athena.TestHarness.Pcl.Views.TestHarnessPage">
 	<coreView:ContentPageBase.Padding>
     	<OnPlatform x:TypeArguments="Thickness">
 	        <OnPlatform.iOS>
@@ -16,6 +17,10 @@
 	        </OnPlatform.WinPhone>
       	</OnPlatform>
 	</coreView:ContentPageBase.Padding>
+
+	<coreView:ContentPageBase.BindingContext>
+		<viewModels:TestHarnessPageViewModel />
+	</coreView:ContentPageBase.BindingContext>
 
 	<coreView:ContentPageBase.Content>
 		<Grid>
@@ -36,7 +41,8 @@
 			        Grid.ColumnSpan="2"
 			        BackgroundColor="Purple"
 			        Text="GestureAwareContentView" 
-			        TextColor="White"/>
+			        TextColor="White"
+			        Command="{Binding GestureAwareContentViewCommand}"/>
 		</Grid>
 	</coreView:ContentPageBase.Content>
 </coreView:ContentPageBase>

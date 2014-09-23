@@ -5,9 +5,9 @@ using Xamarin.Forms;
 
 namespace Athena.TestHarness.Pcl.Views
 {	
-	public partial class TestHarnessPage : ContentPageBase
+	public partial class GestureAwareContentViewDemoPage : ContentPageBase
 	{	
-		public TestHarnessPage ()
+		public GestureAwareContentViewDemoPage ()
 		{
 			InitializeComponent ();
 

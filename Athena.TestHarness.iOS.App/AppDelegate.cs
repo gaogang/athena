@@ -5,6 +5,7 @@ using System.Linq;
 using Athena.ImagePicker;
 using Athena.ImagePicker.iOS;
 using Athena.TestHarness.Pcl;
+using Athena.TestHarness.Pcl.Views;
 using Microsoft.Practices.Unity;
 using MonoTouch.Foundation;
 using MonoTouch.UIKit;
