@@ -39,6 +39,10 @@
     </Compile>
     <Compile Include="ViewModels\TestHarnessPageViewModel.cs" />
     <Compile Include="ViewModels\GestureAwareContentViewDemoPageViewModel.cs" />
+    <Compile Include="Views\CircleViewDemoPage.xaml.cs">
+      <DependentUpon>CircleViewDemoPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ViewModels\CircleViewDemoPageViewModel.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\Portable\$(TargetFrameworkVersion)\Microsoft.Portable.CSharp.targets" />
   <Import Project="..\packages\Xamarin.Forms.1.2.2.6243\build\portable-win+net45+wp80+MonoAndroid10+MonoTouch10\Xamarin.Forms.targets" Condition="Exists('..\packages\Xamarin.Forms.1.2.2.6243\build\portable-win+net45+wp80+MonoAndroid10+MonoTouch10\Xamarin.Forms.targets')" />
@@ -68,6 +72,9 @@
       <Generator>MSBuild:Compile</Generator>
     </EmbeddedResource>
     <EmbeddedResource Include="Views\GestureAwareContentViewDemoPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\CircleViewDemoPage.xaml">
       <Generator>MSBuild:Compile</Generator>
     </EmbeddedResource>
   </ItemGroup>

@@ -58,12 +58,14 @@
   <ItemGroup>
     <Folder Include="Resources\" />
     <Folder Include="Extensions\" />
+    <Folder Include="Renderers\" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ImagePickerProvider.cs" />
-    <Compile Include="GestureAwareContentViewRenderer.cs" />
     <Compile Include="Extensions\UIGestureRecognizerStateExtension.cs" />
+    <Compile Include="Renderers\GestureAwareContentViewRenderer.cs" />
+    <Compile Include="Renderers\CircleViewRenderer.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.MonoTouch.CSharp.targets" />
   <Import Project="..\packages\Xamarin.Forms.1.2.2.6243\build\portable-win+net45+wp80+MonoAndroid10+MonoTouch10\Xamarin.Forms.targets" Condition="Exists('..\packages\Xamarin.Forms.1.2.2.6243\build\portable-win+net45+wp80+MonoAndroid10+MonoTouch10\Xamarin.Forms.targets')" />

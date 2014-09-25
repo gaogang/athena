@@ -4,8 +4,8 @@
 						  xmlns:viewModels="clr-namespace:Athena.TestHarness.Pcl.ViewModels;assembly=Athena.TestHarness.Pcl"
 			 			  xmlns:coreView="clr-namespace:Athena.Core.Pcl.Views;assembly=Athena.Core.Pcl"
 			 			  xmlns:controls="clr-namespace:Athena.Core.Pcl.Controls;assembly=Athena.Core.Pcl"
-             			  x:Class="Athena.TestHarness.Pcl.Views.GestureAwareContentViewDemoPage">
-    <coreView:ContentPageBase.Padding>
+			 			  x:Class="Athena.TestHarness.Pcl.ViewModels.CircleViewDemoPage">
+	<coreView:ContentPageBase.Padding>
     	<OnPlatform x:TypeArguments="Thickness">
 	        <OnPlatform.iOS>
 	          0, 20, 0, 0
@@ -20,74 +20,34 @@
 	</coreView:ContentPageBase.Padding>
 
 	<coreView:ContentPageBase.BindingContext>
-		<viewModels:GestureAwareContentViewDemoPageViewModel />
+		<viewModels:CircleViewDemoPageViewModel />
 	</coreView:ContentPageBase.BindingContext>
 
 	<coreView:ContentPageBase.Content>
 		<Grid>
 			<Grid.RowDefinitions>
 				<RowDefinition Height="auto" />
-				<RowDefinition Height="auto" />
-				<RowDefinition Height="240" />
-				<RowDefinition Height="auto" />
-				<RowDefinition Height="auto" />
 				<RowDefinition Height="*" />
 			</Grid.RowDefinitions>
 
 			<Grid.ColumnDefinitions>
 				<ColumnDefinition Width="*" />
-				<ColumnDefinition Width="*" />
 			</Grid.ColumnDefinitions>
 
 			<Button Grid.Row="0" 
 				    Grid.Column="0"
-				    Grid.ColumnSpan="2"
                     Text="&#8592;"
                     BackgroundColor="Transparent"
                     Font="Large"
                     HorizontalOptions="Start"
                     Command="{Binding BackCommand}" />
 
-			<Label Grid.Row="1"
-				   Grid.Column="0"
-				   Grid.ColumnSpan="2"
-			       Text="Touch Area"
-			       HorizontalOptions="CenterAndExpand"
-			       />
-			
-			<Label Grid.Row="3"
-				   Grid.Column="0"
-			       Text="Gesture  "
-			       HorizontalOptions="End"
-			       />
-
-			<Label Grid.Row="3"
-				   Grid.Column="1"
-			       Text="{Binding Gesture}"
-			       HorizontalOptions="CenterAndExpand"
-			       />
-
-			<Label Grid.Row="4"
-				   Grid.Column="0"
-			       Text="Output  "
-			       HorizontalOptions="End"
-			       />
-
-			<Label Grid.Row="4"
-				   Grid.Column="1"
-			       Text="{Binding Output}"
-			       HorizontalOptions="CenterAndExpand"
-			       />
-
-			<controls:GestureAwareContentView Grid.Row="2"
-                                              Grid.Column="0"
-                                              Grid.ColumnSpan="2"
-											  Pan="{Binding PanCommand}"
-											  Pinch="{Binding PinchCommand}"
-											  Swipe="{Binding SwipeCommand}">
-				<BoxView BackgroundColor="Purple"
-					     Opacity="0.3"/>
-			</controls:GestureAwareContentView>
-		</Grid>
+            <controls:CircleView Grid.Row="1"
+								 BackgroundColor="Purple"
+								 Opacity="0.3"
+								 WidthRequest="50"
+								 HeightRequest="50"
+								 />
+         </Grid>
 	</coreView:ContentPageBase.Content>
 </coreView:ContentPageBase>

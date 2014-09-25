@@ -44,8 +44,11 @@ namespace Athena.ImagePicker.iOS
 				var gestureView = e.NewElement;
 
 				_longPressGestureRecognizer = new UILongPressGestureRecognizer (
-					() => {
-						ExecuteCommand(gestureView.LongPress);
+					sender => {
+						var offset = sender.LocationInView(NativeView);
+
+						ExecuteCommand(gestureView.LongPress, 
+							new GestureOffset(sender.State.ToGestureState(), offset.X, offset.Y));
 					});
 
 				_pinchGestureRecognizer = new UIPinchGestureRecognizer (
@@ -65,12 +68,15 @@ namespace Athena.ImagePicker.iOS
 					});
 
 				_swipeGestureRecognizer = new UISwipeGestureRecognizer (
-					() => {
-						ExecuteCommand(gestureView.Swipe);
+					sender => {
+						var offset = sender.LocationInView(NativeView);
+
+						ExecuteCommand(gestureView.Swipe, 
+							new GestureOffset(sender.State.ToGestureState(), offset.X, offset.Y));
 					});
 
 				_rotationGestureRecognizer = new UIRotationGestureRecognizer (
-					() => {
+					sender => {
 						ExecuteCommand (gestureView.Rotate);
 					});
 

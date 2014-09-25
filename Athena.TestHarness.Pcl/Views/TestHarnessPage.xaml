@@ -30,19 +30,26 @@
 				<ColumnDefinition Width="*" />
 			</Grid.ColumnDefinitions>
 
+			<Grid.RowDefinitions>
+				<RowDefinition Height="auto" />
+				<RowDefinition Height="auto" />
+			</Grid.RowDefinitions>
+
 			<Button Grid.Row="0"
 			        Grid.Column="0"
-			        BackgroundColor="Olive"
-			        Text="RelativeLayout" 
-			        TextColor="White"/>
+			        Text="RelativeLayout"
+			        />
 
 			<Button Grid.Row="0"
 			        Grid.Column="1"
 			        Grid.ColumnSpan="2"
-			        BackgroundColor="Purple"
 			        Text="GestureAwareContentView" 
-			        TextColor="White"
 			        Command="{Binding GestureAwareContentViewCommand}"/>
+
+			<Button Grid.Row="1"
+			        Grid.Column="0"
+			        Text="CircleView" 
+			        Command="{Binding CircleViewCommand}"/>
 		</Grid>
 	</coreView:ContentPageBase.Content>
 </coreView:ContentPageBase>
