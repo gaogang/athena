@@ -30,7 +30,13 @@ namespace Athena.ImagePicker.iOS.Renderers
 			using(CGContext g = UIGraphics.GetCurrentContext ()){
 
 				//set up drawing attributes
-				g.SetLineWidth(1);
+				g.SetLineWidth(element.StrokeWidth);
+
+				if (element.StrokeDash > 1.0f) {
+					g.SetLineDash (
+						0, 
+						new float[] { element.StrokeDash, element.StrokeDash });
+				}
 
 				element.BackgroundColor.ToUIColor ().SetFill ();
 				element.StrokeColor.ToUIColor ().SetStroke ();

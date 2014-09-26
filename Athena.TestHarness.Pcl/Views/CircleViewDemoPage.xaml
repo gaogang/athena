@@ -44,6 +44,9 @@
 
             <controls:CircleView Grid.Row="1"
 								 BackgroundColor="Purple"
+								 StrokeColor="Red"
+								 StrokeWidth="2"
+								 StrokeDash="2.0"
 								 Opacity="0.3"
 								 WidthRequest="50"
 								 HeightRequest="50"
