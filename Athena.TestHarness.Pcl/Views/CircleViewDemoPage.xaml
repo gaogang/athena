@@ -34,23 +34,62 @@
 				<ColumnDefinition Width="*" />
 			</Grid.ColumnDefinitions>
 
+			<BoxView Grid.Column="0"
+					 BackgroundColor="#19bbf1" />
+
 			<Button Grid.Row="0" 
 				    Grid.Column="0"
                     Text="&#8592;"
+                    TextColor="White"
                     BackgroundColor="Transparent"
                     Font="Large"
                     HorizontalOptions="Start"
                     Command="{Binding BackCommand}" />
+            
+			  <StackLayout Grid.Row="1" Orientation="Vertical" Spacing="20">
+				<Label Text="Traffic light"
+	                   VerticalOptions="Center"
+	                   HorizontalOptions="CenterAndExpand">
+	                   <Label.Font>
+					   		<OnPlatform x:TypeArguments="Font">
+						    	<OnPlatform.iOS>SnellRoundhand-Black,36</OnPlatform.iOS>
+					   		</OnPlatform>
+					   </Label.Font>
+	             </Label>
 
-            <controls:CircleView Grid.Row="1"
-								 BackgroundColor="Purple"
-								 StrokeColor="Red"
-								 StrokeWidth="2"
-								 StrokeDash="2.0"
-								 Opacity="0.3"
-								 WidthRequest="50"
-								 HeightRequest="50"
-								 />
+	            <controls:CircleView FillColor="Red"
+									 StrokeColor="Black"
+									 StrokeDash="2.0"
+									 StrokeThickness="1.0"
+									 Opacity="0.3"
+									 WidthRequest="100"
+									 HeightRequest="100"
+									 HorizontalOptions="CenterAndExpand"
+									 VerticalOptions="Center"
+									 />
+
+				<controls:CircleView FillColor="Yellow"
+									 StrokeColor="Black"
+									 StrokeDash="2.0"
+									 StrokeThickness="1.0"
+									 Opacity="0.3"
+									 WidthRequest="100"
+									 HeightRequest="100"
+									 HorizontalOptions="CenterAndExpand"
+									 VerticalOptions="Center"
+									 />
+
+				<controls:CircleView FillColor="Blue"
+									 StrokeColor="Black"
+									 StrokeDash="2.0"
+									 StrokeThickness="1.0"
+									 Opacity="0.3"
+									 WidthRequest="100"
+									 HeightRequest="100"
+									 HorizontalOptions="CenterAndExpand"
+									 VerticalOptions="Center"
+									 />
+		      </StackLayout>
          </Grid>
 	</coreView:ContentPageBase.Content>
 </coreView:ContentPageBase>

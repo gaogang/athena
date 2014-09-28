@@ -5,23 +5,42 @@ namespace Athena.Core.Pcl.Controls
 {
 	public class CircleView : BoxView
 	{
-		public static readonly BindableProperty StrokeColorProperty = BindableProperty.Create (
-			                                                            "StrokeColor", 
+		public static readonly BindableProperty FillColorProperty = BindableProperty.Create (
+			                                                            "FillColor", 
 			                                                            typeof(Color), 
 			                                                            typeof(CircleView), 
-			                                                            new Color (0, 0, 0));
+			                                                            Color.Transparent);
 
-		public static readonly BindableProperty StrokeWidthProperty = BindableProperty.Create (
-			                                                            "StrokeWidth", 
-			                                                            typeof(int),
-			                                                            typeof(CircleView),
-			                                                            1);
+		public static readonly BindableProperty StrokeColorProperty = BindableProperty.Create (
+			                                                              "StrokeColor", 
+			                                                              typeof(Color), 
+			                                                              typeof(CircleView), 
+			                                                              Color.Transparent);
+
+		public static readonly BindableProperty StrokeThicknessProperty = BindableProperty.Create (
+			                                                                  "StrokeThickness", 
+			                                                                  typeof(float),
+			                                                                  typeof(CircleView),
+			                                                                  1.0f);
 
 		public static readonly BindableProperty StrokeDashProperty = BindableProperty.Create (
 			                                                            "StrokeDash",
 			                                                            typeof(float),
 			                                                            typeof(CircleView),
 			                                                            1.0f);
+
+
+		public Color FillColor 
+		{
+			get {
+				return (Color)GetValue (FillColorProperty);
+			}
+
+			set {
+				SetValue (FillColorProperty, value);
+			}
+		}
+
 		public Color StrokeColor 
 		{
 			get {
@@ -33,14 +52,14 @@ namespace Athena.Core.Pcl.Controls
 			}
 		}
 
-		public int StrokeWidth
+		public float StrokeThickness
 		{
 			get {
-				return (int)GetValue (StrokeWidthProperty);
+				return (float)GetValue (StrokeThicknessProperty);
 			}
 
 			set {
-				SetValue (StrokeColorProperty, value);
+				SetValue (StrokeThicknessProperty, value);
 			}
 		}
 

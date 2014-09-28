@@ -1,0 +1,46 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<coreView:ContentPageBase xmlns="http://xamarin.com/schemas/2014/forms" 
+						 xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+						 xmlns:viewModels="clr-namespace:Athena.TestHarness.Pcl.ViewModels;assembly=Athena.TestHarness.Pcl"
+			 			 xmlns:coreView="clr-namespace:Athena.Core.Pcl.Views;assembly=Athena.Core.Pcl"
+			 			 xmlns:controls="clr-namespace:Athena.Core.Pcl.Controls;assembly=Athena.Core.Pcl"
+						 x:Class="Athena.TestHarness.Pcl.RelatieLayoutDemoPage">
+	<coreView:ContentPageBase.Padding>
+    	<OnPlatform x:TypeArguments="Thickness">
+	        <OnPlatform.iOS>
+	          0, 20, 0, 0
+	        </OnPlatform.iOS>
+	        <OnPlatform.Android>
+	          0, 0, 0, 0
+	        </OnPlatform.Android>
+	        <OnPlatform.WinPhone>
+	          0, 0, 0, 0
+	        </OnPlatform.WinPhone>
+      	</OnPlatform>
+	</coreView:ContentPageBase.Padding>
+
+	<coreView:ContentPageBase.BindingContext>
+		<viewModels:CircleViewDemoPageViewModel />
+	</coreView:ContentPageBase.BindingContext>
+
+	<coreView:ContentPageBase.Content>
+		<Grid>
+			<Grid.RowDefinitions>
+				<RowDefinition Height="auto" />
+				<RowDefinition Height="*" />
+			</Grid.RowDefinitions>
+
+			<Grid.ColumnDefinitions>
+				<ColumnDefinition Width="*" />
+			</Grid.ColumnDefinitions>
+
+			<Button Grid.Row="0" 
+				    Grid.Column="0"
+                    Text="&#8592;"
+                    BackgroundColor="Transparent"
+                    Font="Large"
+                    HorizontalOptions="Start"
+                    Command="{Binding BackCommand}" />
+		</Grid>
+	</coreView:ContentPageBase.Content>
+</coreView:ContentPageBase>
