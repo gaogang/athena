@@ -1,10 +1,11 @@
 ﻿using System;
 using System.Windows.Input;
+using Athena.Core.Pcl.ViewModels;
 using Xamarin.Forms;
 
 namespace Athena.TestHarness.Pcl.ViewModels
 {
-	public class RelativeLayoutDemoPageViewModel
+	public class RelativeLayoutDemoPageViewModel : ViewModelBase
 	{
 		private readonly ICommand _backCommand;
 
@@ -22,9 +23,8 @@ namespace Athena.TestHarness.Pcl.ViewModels
 
 		private void BackCommandExecute(object args) 
 		{
+			View.NavigateBack ();
 		}
-
-
 	}
 }
 

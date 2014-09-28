@@ -10,6 +10,8 @@ namespace Athena.TestHarness.Pcl
 		public RelatieLayoutDemoPage ()
 		{
 			InitializeComponent ();
+
+			ViewModel.View = this;
 		}
 	}
 }
