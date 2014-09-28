@@ -38,6 +38,7 @@
 			<Button Grid.Row="0"
 			        Grid.Column="0"
 			        Text="RelativeLayout"
+			        Command="{Binding RelativeLayoutCommand}"
 			        />
 
 			<Button Grid.Row="0"
