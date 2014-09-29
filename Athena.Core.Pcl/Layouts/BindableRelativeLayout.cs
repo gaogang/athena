@@ -11,6 +11,10 @@ namespace Athena.Core.Pcl.Layouts
 			bindable => GetElementName(bindable),
 			string.Empty);
 
+		public static BindableProperty ModeProperty = BindableProperty.CreateAttached<BindableRelativeLayout, RelativeLayoutMode>(
+			bindable => GetMode(bindable),
+			RelativeLayoutMode.Offset);
+
 		public static BindableProperty XProperty = BindableProperty.CreateAttached<BindableRelativeLayout, double>(
 			bindable => GetX(bindable),
 			0.0, 
@@ -22,6 +26,24 @@ namespace Athena.Core.Pcl.Layouts
 
 		public static BindableProperty YProperty = BindableProperty.CreateAttached<BindableRelativeLayout, double>(
 			bindable => GetY(bindable),
+			0.0, 
+			BindingMode.OneWay, 
+			null, 
+			(bindable, oldValue, newValue) => OnLayoutChanged(bindable, oldValue, newValue), 
+			null, 
+			null);
+
+		public static BindableProperty DegreeProperty = BindableProperty.CreateAttached<BindableRelativeLayout, double>(
+			bindable => GetDegree(bindable),
+			0.0, 
+			BindingMode.OneWay, 
+			null, 
+			(bindable, oldValue, newValue) => OnLayoutChanged(bindable, oldValue, newValue), 
+			null, 
+			null);
+
+		public static BindableProperty RProperty = BindableProperty.CreateAttached<BindableRelativeLayout, double>(
+			bindable => GetR(bindable),
 			0.0, 
 			BindingMode.OneWay, 
 			null, 
@@ -57,6 +79,16 @@ namespace Athena.Core.Pcl.Layouts
 			obj.SetValue (ElementNameProperty, value);
 		}
 
+		public static RelativeLayoutMode GetMode(BindableObject obj) 
+		{
+			return (RelativeLayoutMode)obj.GetValue (ModeProperty);
+		}
+
+		public static void SetMode(BindableObject obj, RelativeLayoutMode value)
+		{
+			obj.SetValue (ModeProperty, value);
+		}
+
 		public static double GetX(BindableObject obj) 
 		{
 			return (double)obj.GetValue (XProperty);
@@ -75,6 +107,26 @@ namespace Athena.Core.Pcl.Layouts
 		public static void SetY(BindableObject obj, double value)
 		{
 			obj.SetValue (YProperty, value);
+		}
+
+		public static double GetDegree(BindableObject obj) 
+		{
+			return (double)obj.GetValue (DegreeProperty);
+		}
+
+		public static void SetDegree(BindableObject obj, double value)
+		{
+			obj.SetValue (DegreeProperty, value);
+		}
+
+		public static double GetR(BindableObject obj) 
+		{
+			return (double)obj.GetValue (RProperty);
+		}
+
+		public static void SetR(BindableObject obj, double value)
+		{
+			obj.SetValue (RProperty, value);
 		}
 
 		public static double GetWidth(BindableObject obj) 
@@ -129,24 +181,67 @@ namespace Athena.Core.Pcl.Layouts
 
 			foreach (var dependency in dependencies) {
 				var elementName = GetElementName (dependency);
-
-				var xFactor = GetX (dependency);
-				var yFactor = GetY (dependency);
-				var weigthFactor = GetWidth (dependency);
-				var heightFactor = GetHeight (dependency);
+				var mode = GetMode (dependency);
 
 				var master = dependency.FindByName<View> (elementName);
-				var masterRegion = new Rectangle (
-					                   master.X + xFactor * master.Width,
-					                   master.Y + yFactor * master.Height,
-					                   master.Width * weigthFactor,
-					                   master.Height * heightFactor);
 
-				LayoutChildIntoBoundingRegion (dependency, masterRegion);
+				Rectangle region;
+
+				switch (mode) {
+				case RelativeLayoutMode.Offset:
+					region = GetBoundByOffset (dependency, master);
+					break;
+				case RelativeLayoutMode.Radian:
+					region = GetBoundByRadian (dependency, master);
+					break;
+				default:
+					throw new NotSupportedException ();
+				}
+
+				LayoutChildIntoBoundingRegion (dependency, region);
 			}
 		}
 
 		#endregion
+
+		private static Rectangle GetBoundByOffset(View dependency, View master)
+		{
+			var xFactor = GetX (dependency);
+			var yFactor = GetY (dependency);
+
+			var weigthFactor = GetWidth (dependency);
+			var heightFactor = GetHeight (dependency);
+
+			return new Rectangle (
+				master.X + xFactor * master.Width,
+				master.Y + yFactor * master.Height,
+				master.Width * weigthFactor,
+				master.Height * heightFactor);
+		}
+
+		private static Rectangle GetBoundByRadian(View dependency, View master)
+		{
+			var weigthFactor = GetWidth (dependency);
+			var heightFactor = GetHeight (dependency);
+
+			var r = GetR (dependency);
+			var degree = GetDegree (dependency);
+
+			var x = Math.Cos (degree * Math.PI / 180.0) * r;
+			var y = Math.Sin (degree * Math.PI / 180.0) * r;
+
+			var width = master.Width * weigthFactor;
+			var height = master.Height * heightFactor;
+
+			var offsetX = -width / 2;
+			var offsetY = -height / 2;
+
+			return new Rectangle (
+				master.Bounds.Center.X + x + offsetX,
+				master.Bounds.Center.Y + y + offsetY,
+				width,
+				height);
+		}
 	}
 }
 

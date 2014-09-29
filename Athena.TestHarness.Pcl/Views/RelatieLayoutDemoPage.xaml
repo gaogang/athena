@@ -48,13 +48,25 @@
                     HorizontalOptions="Start"
                     Command="{Binding BackCommand}" />
             
-			<Label Text="Solar System"
+			<Label Text="Sun Earth Moon"
+				   TextColor="White"
+					   Grid.Row="0"
+	                   VerticalOptions="Center"
+	                   HorizontalOptions="EndAndExpand">
+	                   <Label.Font>
+					   		<OnPlatform x:TypeArguments="Font">
+						    	<OnPlatform.iOS>SnellRoundhand-Black,24</OnPlatform.iOS>
+					   		</OnPlatform>
+					   </Label.Font>
+	        </Label>
+
+			<Label Text="Demostration of the BindableRelativeLayout control in Radian Mode"
 					   Grid.Row="1"
 	                   VerticalOptions="Center"
 	                   HorizontalOptions="CenterAndExpand">
 	                   <Label.Font>
 					   		<OnPlatform x:TypeArguments="Font">
-						    	<OnPlatform.iOS>SnellRoundhand-Black,36</OnPlatform.iOS>
+						    	<OnPlatform.iOS>SnellRoundhand-Black,18</OnPlatform.iOS>
 					   		</OnPlatform>
 					   </Label.Font>
 	        </Label>
@@ -66,110 +78,54 @@
 				                     StrokeThickness="1.0"
 				                     StrokeDash="2"
 				                     Opacity="0.3"
-				                     WidthRequest="60"
-				                     HeightRequest="60"
+				                     WidthRequest="50"
+				                     HeightRequest="50"
 				                     HorizontalOptions="CenterAndExpand"
 				                     VerticalOptions="CenterAndExpand" />
 
-				<controls:CircleView x:Name="Mercury"
-				                     FillColor="Silver"
+				<controls:CircleView x:Name="EarthOrbit"
+				                     FillColor="Transparent"
+				                     StrokeColor="Black"
+				                     StrokeDash="2"
 				                     Opacity="0.3"
-				                     HorizontalOptions="CenterAndExpand"
-				                     VerticalOptions="CenterAndExpand" 
 				                     layouts:BindableRelativeLayout.ElementName="Sun"
-				                     layouts:BindableRelativeLayout.X="0.0"
-				                     layouts:BindableRelativeLayout.Y="-0.4"
-				                     layouts:BindableRelativeLayout.Width="0.2"
-				                     layouts:BindableRelativeLayout.Height="0.2"/>
+				                     layouts:BindableRelativeLayout.Mode="Radian"
+				                     layouts:BindableRelativeLayout.Degree="0.0"
+				                     layouts:BindableRelativeLayout.R="0.0"
+				                     layouts:BindableRelativeLayout.Width="4.0"
+				                     layouts:BindableRelativeLayout.Height="4.0"/>
 
-			<controls:CircleView x:Name="Venus"
-				                     FillColor="Olive"
-				                     Opacity="0.3"
-				                     HorizontalOptions="CenterAndExpand"
-				                     VerticalOptions="CenterAndExpand" 
-				                     layouts:BindableRelativeLayout.ElementName="Sun"
-				                     layouts:BindableRelativeLayout.X="1.4"
-				                     layouts:BindableRelativeLayout.Y="-0.6"
-				                     layouts:BindableRelativeLayout.Width="0.4"
-				                     layouts:BindableRelativeLayout.Height="0.4"/>
-
-			<controls:CircleView x:Name="Earth"
+				<controls:CircleView x:Name="Earth"
 				                     FillColor="Aqua"
 				                     Opacity="0.3"
-				                     HorizontalOptions="CenterAndExpand"
-				                     VerticalOptions="CenterAndExpand" 
 				                     layouts:BindableRelativeLayout.ElementName="Sun"
-				                     layouts:BindableRelativeLayout.X="-1.6"
-				                     layouts:BindableRelativeLayout.Y="0.5"
-				                     layouts:BindableRelativeLayout.Width="0.4"
-				                     layouts:BindableRelativeLayout.Height="0.4"/>
+				                     layouts:BindableRelativeLayout.Mode="Radian"
+				                     layouts:BindableRelativeLayout.Degree="45.0"
+				                     layouts:BindableRelativeLayout.R="100.0"
+				                     layouts:BindableRelativeLayout.Width="0.5"
+				                     layouts:BindableRelativeLayout.Height="0.5"/>
 
-			<controls:CircleView x:Name="Mars"
-				                     FillColor="Red"
+			<controls:CircleView x:Name="MoonObit"
+				                     FillColor="Transparent"
+				                     StrokeColor="Black"
+				                     StrokeDash="2"
 				                     Opacity="0.3"
-				                     HorizontalOptions="CenterAndExpand"
-				                     VerticalOptions="CenterAndExpand" 
-				                     layouts:BindableRelativeLayout.ElementName="Sun"
-				                     layouts:BindableRelativeLayout.X="2.5"
-				                     layouts:BindableRelativeLayout.Y="0.5"
-				                     layouts:BindableRelativeLayout.Width="0.2"
-				                     layouts:BindableRelativeLayout.Height="0.2"/>
+				                     layouts:BindableRelativeLayout.ElementName="Earth"
+				                     layouts:BindableRelativeLayout.Mode="Radian"
+				                     layouts:BindableRelativeLayout.Degree="0.0"
+				                     layouts:BindableRelativeLayout.R="0.0"
+				                     layouts:BindableRelativeLayout.Width="4.0"
+				                     layouts:BindableRelativeLayout.Height="4.0"/>
 
-			<controls:CircleView x:Name="Jupiter"
-				                     FillColor="Navy"
-				                     Opacity="0.3"
-				                     HorizontalOptions="CenterAndExpand"
-				                     VerticalOptions="CenterAndExpand" 
-				                     layouts:BindableRelativeLayout.ElementName="Sun"
-				                     layouts:BindableRelativeLayout.X="0.5"
-				                     layouts:BindableRelativeLayout.Y="-2.0"
-				                     layouts:BindableRelativeLayout.Width="0.6"
-				                     layouts:BindableRelativeLayout.Height="0.6"/>
-
-			<controls:CircleView x:Name="Saturn"
-				                     FillColor="Green"
-				                     Opacity="0.3"
-				                     HorizontalOptions="CenterAndExpand"
-				                     VerticalOptions="CenterAndExpand" 
-				                     layouts:BindableRelativeLayout.ElementName="Sun"
-				                     layouts:BindableRelativeLayout.X="0.5"
-				                     layouts:BindableRelativeLayout.Y="2.0"
-				                     layouts:BindableRelativeLayout.Width="0.6"
-				                     layouts:BindableRelativeLayout.Height="0.6"/>
-
-			<controls:CircleView x:Name="Uranus"
+			<controls:CircleView x:Name="Moon"
 				                     FillColor="Teal"
 				                     Opacity="0.3"
-				                     HorizontalOptions="CenterAndExpand"
-				                     VerticalOptions="CenterAndExpand" 
-				                     layouts:BindableRelativeLayout.ElementName="Sun"
-				                     layouts:BindableRelativeLayout.X="-1.5"
-				                     layouts:BindableRelativeLayout.Y="2.5"
-				                     layouts:BindableRelativeLayout.Width="0.3"
-				                     layouts:BindableRelativeLayout.Height="0.3"/>
-
-			<controls:CircleView x:Name="Neptune"
-				                     FillColor="Fuschia"
-				                     Opacity="0.3"
-				                     HorizontalOptions="CenterAndExpand"
-				                     VerticalOptions="CenterAndExpand" 
-				                     layouts:BindableRelativeLayout.ElementName="Sun"
-				                     layouts:BindableRelativeLayout.X="-0.6"
-				                     layouts:BindableRelativeLayout.Y="-2.6"
-				                     layouts:BindableRelativeLayout.Width="0.3"
-				                     layouts:BindableRelativeLayout.Height="0.3"/>
-
-			
-			<controls:CircleView x:Name="Pluto"
-				                     FillColor="Maroon"
-				                     Opacity="0.3"
-				                     HorizontalOptions="CenterAndExpand"
-				                     VerticalOptions="CenterAndExpand" 
-				                     layouts:BindableRelativeLayout.ElementName="Sun"
-				                     layouts:BindableRelativeLayout.X="2.0"
-				                     layouts:BindableRelativeLayout.Y="3.2"
-				                     layouts:BindableRelativeLayout.Width="0.1"
-				                     layouts:BindableRelativeLayout.Height="0.1"/>
+				                     layouts:BindableRelativeLayout.ElementName="Earth"
+				                     layouts:BindableRelativeLayout.Mode="Radian"
+				                     layouts:BindableRelativeLayout.Degree="-180.0"
+				                     layouts:BindableRelativeLayout.R="50.0"
+				                     layouts:BindableRelativeLayout.Width="0.5"
+				                     layouts:BindableRelativeLayout.Height="0.5"/>
 			</layouts:BindableRelativeLayout>
 		</Grid>
 	</coreView:ContentPageBase.Content>

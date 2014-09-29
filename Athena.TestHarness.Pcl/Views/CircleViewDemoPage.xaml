@@ -46,13 +46,25 @@
                     HorizontalOptions="Start"
                     Command="{Binding BackCommand}" />
             
+			<Label Text="Traffic Light"
+				   TextColor="White"
+					   Grid.Row="0"
+	                   VerticalOptions="Center"
+	                   HorizontalOptions="EndAndExpand">
+	                   <Label.Font>
+					   		<OnPlatform x:TypeArguments="Font">
+						    	<OnPlatform.iOS>SnellRoundhand-Black,24</OnPlatform.iOS>
+					   		</OnPlatform>
+					   </Label.Font>
+	        </Label>
+
 			  <StackLayout Grid.Row="1" Orientation="Vertical" Spacing="20">
-				<Label Text="Traffic light"
+				<Label Text="Demostration of the CircleView control"
 	                   VerticalOptions="Center"
 	                   HorizontalOptions="CenterAndExpand">
 	                   <Label.Font>
 					   		<OnPlatform x:TypeArguments="Font">
-						    	<OnPlatform.iOS>SnellRoundhand-Black,36</OnPlatform.iOS>
+						    	<OnPlatform.iOS>SnellRoundhand-Black,18</OnPlatform.iOS>
 					   		</OnPlatform>
 					   </Label.Font>
 	             </Label>
