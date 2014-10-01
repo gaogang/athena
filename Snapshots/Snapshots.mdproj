@@ -7,12 +7,12 @@
     <ProjectGuid>{A5D09E87-8FCA-4225-B438-B49C095C4B4D}</ProjectGuid>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Default|AnyCPU' ">
-    <OutputPath>.\</OutputPath>
+    <OutputPath>.</OutputPath>
   </PropertyGroup>
   <ItemGroup>
-    <Folder Include="Views\" />
+    <Folder Include="iOS\" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Views\CircleView.png" />
+    <None Include="iOS\Views\CircleView.png" />
   </ItemGroup>
 </Project>
