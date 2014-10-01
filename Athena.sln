@@ -13,6 +13,11 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Athena.TestHarness.Pcl", "A
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Athena.TestHarness.iOS.App", "Athena.TestHarness.iOS.App\Athena.TestHarness.iOS.App.csproj", "{E1230749-9975-474A-AB0B-7650E9DB4796}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{BEBC7E15-274E-44BB-BDA0-6C1DCAD94169}"
+	ProjectSection(SolutionItems) = preProject
+		Snapshots\Views\CircleView.png = Snapshots\Views\CircleView.png
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -121,6 +126,8 @@ Global
 		{E1230749-9975-474A-AB0B-7650E9DB4796}.Release|iPhone.Build.0 = Release|iPhone
 		{E1230749-9975-474A-AB0B-7650E9DB4796}.Release|iPhoneSimulator.ActiveCfg = Release|iPhoneSimulator
 		{E1230749-9975-474A-AB0B-7650E9DB4796}.Release|iPhoneSimulator.Build.0 = Release|iPhoneSimulator
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
 	EndGlobalSection
 	GlobalSection(MonoDevelopProperties) = preSolution
 		StartupItem = Athena.TestHarness.iOS.App\Athena.TestHarness.iOS.App.csproj
