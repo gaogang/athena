@@ -5,10 +5,10 @@ using Athena.Core.Pcl.Gesture;
 using MonoTouch.UIKit;
 using Xamarin.Forms;
 using Xamarin.Forms.Platform.iOS;
-using Athena.ImagePicker.iOS;
+using Athena.Core.iOS;
 
 [assembly: ExportRenderer (typeof(GestureAwareContentView), typeof(GestureAwareContentViewRenderer))]
-namespace Athena.ImagePicker.iOS
+namespace Athena.Core.iOS
 {
 	public class GestureAwareContentViewRenderer : ViewRenderer<GestureAwareContentView, UIView>
 	{

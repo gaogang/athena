@@ -131,5 +131,9 @@
       <Project>{B0FF09E6-993A-4D01-BB84-6A5C97FEDB86}</Project>
       <Name>Athena.TestHarness.Pcl</Name>
     </ProjectReference>
+    <ProjectReference Include="..\Athena.Core.iOS\Athena.Core.iOS.csproj">
+      <Project>{74EF075A-42E5-44CA-947C-13575B6C42EF}</Project>
+      <Name>Athena.Core.iOS</Name>
+    </ProjectReference>
   </ItemGroup>
 </Project>

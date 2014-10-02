@@ -2,7 +2,7 @@
 using MonoTouch.UIKit;
 using Xamarin.Forms;
 
-namespace Athena.ImagePicker.iOS
+namespace Athena.Core.iOS
 {
 	internal static class UIGestureRecognizerStateExtension
 	{

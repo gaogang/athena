@@ -1,11 +1,12 @@
 ﻿using System;
 using System.Reactive.Linq;
+using Athena.ImagePicker;
 using Athena.ImagePicker.Pcl;
 using MonoTouch.Foundation;
 using MonoTouch.UIKit;
 using Xamarin.Forms;
 
-namespace Athena.ImagePicker.iOS
+namespace Athena.Core.iOS
 {
 	public class ImagePickerProvider : IImagePickerProvider, IDisposable
 	{

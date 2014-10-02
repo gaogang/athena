@@ -5,10 +5,10 @@ using MonoTouch.CoreGraphics;
 using MonoTouch.UIKit;
 using Xamarin.Forms;
 using Xamarin.Forms.Platform.iOS;
-using Athena.ImagePicker.iOS.Renderers;
+using Athena.Core.iOS.Renderers;
 
 [assembly: ExportRenderer (typeof(CircleView), typeof(CircleViewRenderer))]
-namespace Athena.ImagePicker.iOS.Renderers
+namespace Athena.Core.iOS.Renderers
 {
 	public class CircleViewRenderer : BoxRenderer
 	{
