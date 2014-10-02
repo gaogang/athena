@@ -33,7 +33,6 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Layouts\BindableRelativeLayout.cs" />
     <Compile Include="CoreFalseFlag.cs" />
-    <Compile Include="Gesture\GestureArgs.cs" />
     <Compile Include="Controls\GestureAwareContentView.cs" />
     <Compile Include="Layouts\RelativeBoundary.cs" />
     <Compile Include="Gesture\GestureOffset.cs" />
@@ -44,6 +43,7 @@
     <Compile Include="ViewModels\ViewModelBase.cs" />
     <Compile Include="Controls\CircleView.cs" />
     <Compile Include="Layouts\RelativeLayoutMode.cs" />
+    <Compile Include="Gesture\GestureArgs.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\Portable\$(TargetFrameworkVersion)\Microsoft.Portable.CSharp.targets" />
   <Import Project="..\packages\Xamarin.Forms.1.2.2.6243\build\portable-win+net45+wp80+MonoAndroid10+MonoTouch10\Xamarin.Forms.targets" Condition="Exists('..\packages\Xamarin.Forms.1.2.2.6243\build\portable-win+net45+wp80+MonoAndroid10+MonoTouch10\Xamarin.Forms.targets')" />
