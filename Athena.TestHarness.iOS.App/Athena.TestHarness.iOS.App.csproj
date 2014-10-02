@@ -127,10 +127,6 @@
       <Project>{2E898FDB-1EA1-4E9E-B393-E107AD5ECCAF}</Project>
       <Name>Athena.ImagePicker.Pcl</Name>
     </ProjectReference>
-    <ProjectReference Include="..\Athena.ImagePicker.iOS\Athena.ImagePicker.iOS.csproj">
-      <Project>{74EF075A-42E5-44CA-947C-13575B6C42EF}</Project>
-      <Name>Athena.ImagePicker.iOS</Name>
-    </ProjectReference>
     <ProjectReference Include="..\Athena.TestHarness.Pcl\Athena.TestHarness.Pcl.csproj">
       <Project>{B0FF09E6-993A-4D01-BB84-6A5C97FEDB86}</Project>
       <Name>Athena.TestHarness.Pcl</Name>

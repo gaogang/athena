@@ -3,8 +3,6 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2012
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Athena.ImagePicker.Pcl", "Athena.ImagePicker.Pcl\Athena.ImagePicker.Pcl.csproj", "{2E898FDB-1EA1-4E9E-B393-E107AD5ECCAF}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Athena.ImagePicker.iOS", "Athena.ImagePicker.iOS\Athena.ImagePicker.iOS.csproj", "{74EF075A-42E5-44CA-947C-13575B6C42EF}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Athena.Core.Pcl", "Athena.Core.Pcl\Athena.Core.Pcl.csproj", "{D863B695-D01C-42F4-91CE-DF923514A74D}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Athena.TestHarness.Pcl", "Athena.TestHarness.Pcl\Athena.TestHarness.Pcl.csproj", "{B0FF09E6-993A-4D01-BB84-6A5C97FEDB86}"
@@ -14,6 +12,8 @@ EndProject
 Project("{9344BDBB-3E7F-41FC-A0DD-8665D75EE146}") = "Snapshots", "Snapshots\Snapshots.mdproj", "{A5D09E87-8FCA-4225-B438-B49C095C4B4D}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Athena.Core.Android", "Athena.Core.Android\Athena.Core.Android.csproj", "{D8AAF936-AD5D-4B5C-8DA6-C5D801AFB2D6}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Athena.Core.iOS", "Athena.Core.iOS\Athena.Core.iOS.csproj", "{74EF075A-42E5-44CA-947C-13575B6C42EF}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -46,10 +46,10 @@ Global
 		{2E898FDB-1EA1-4E9E-B393-E107AD5ECCAF}.Release|iPhone.Build.0 = Release|Any CPU
 		{2E898FDB-1EA1-4E9E-B393-E107AD5ECCAF}.Release|iPhoneSimulator.ActiveCfg = Release|Any CPU
 		{2E898FDB-1EA1-4E9E-B393-E107AD5ECCAF}.Release|iPhoneSimulator.Build.0 = Release|Any CPU
-		{74EF075A-42E5-44CA-947C-13575B6C42EF}.Ad-Hoc|iPhone.ActiveCfg = Debug|Any CPU
-		{74EF075A-42E5-44CA-947C-13575B6C42EF}.Ad-Hoc|iPhone.Build.0 = Debug|Any CPU
-		{74EF075A-42E5-44CA-947C-13575B6C42EF}.AppStore|iPhone.ActiveCfg = Debug|Any CPU
-		{74EF075A-42E5-44CA-947C-13575B6C42EF}.AppStore|iPhone.Build.0 = Debug|Any CPU
+		{74EF075A-42E5-44CA-947C-13575B6C42EF}.Ad-Hoc|iPhone.ActiveCfg = Release|Any CPU
+		{74EF075A-42E5-44CA-947C-13575B6C42EF}.Ad-Hoc|iPhone.Build.0 = Release|Any CPU
+		{74EF075A-42E5-44CA-947C-13575B6C42EF}.AppStore|iPhone.ActiveCfg = Release|Any CPU
+		{74EF075A-42E5-44CA-947C-13575B6C42EF}.AppStore|iPhone.Build.0 = Release|Any CPU
 		{74EF075A-42E5-44CA-947C-13575B6C42EF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{74EF075A-42E5-44CA-947C-13575B6C42EF}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{74EF075A-42E5-44CA-947C-13575B6C42EF}.Debug|iPhone.ActiveCfg = Debug|Any CPU
