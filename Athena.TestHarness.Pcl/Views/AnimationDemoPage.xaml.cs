@@ -10,6 +10,8 @@ namespace Athena.TestHarness.Pcl.ViewModels
 		public AnimationDemoPage ()
 		{
 			InitializeComponent ();
+
+			ViewModel.View = this;
 		}
 	}
 }

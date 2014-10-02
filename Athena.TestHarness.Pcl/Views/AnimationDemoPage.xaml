@@ -20,7 +20,7 @@
 	</coreView:ContentPageBase.Padding>
 
 	<coreView:ContentPageBase.BindingContext>
-		<viewModels:CircleViewDemoPageViewModel />
+		<viewModels:AnimationDemoPageViewModel />
 	</coreView:ContentPageBase.BindingContext>
 
 	<coreView:ContentPageBase.Content>
@@ -46,7 +46,7 @@
                     HorizontalOptions="Start"
                     Command="{Binding BackCommand}" />
             
-			<Label Text="Traffic Light"
+			<Label Text="Animation"
 				   TextColor="White"
 					   Grid.Row="0"
 	                   VerticalOptions="Center"
