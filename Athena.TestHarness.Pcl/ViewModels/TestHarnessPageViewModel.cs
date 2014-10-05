@@ -66,7 +66,7 @@ namespace Athena.TestHarness.Pcl.ViewModels
 
 		private void AnimationCommandExecute(object args) 
 		{
-			View.NavigateTo (new AnimationDemoPage ());
+			View.NavigateTo (new PopupButtonDemoPage ());
 		}
 	}
 }

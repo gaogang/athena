@@ -4,7 +4,7 @@
 						  xmlns:viewModels="clr-namespace:Athena.TestHarness.Pcl.ViewModels;assembly=Athena.TestHarness.Pcl"
 			 			  xmlns:coreView="clr-namespace:Athena.Core.Pcl.Views;assembly=Athena.Core.Pcl"
 			 			  xmlns:controls="clr-namespace:Athena.Core.Pcl.Controls;assembly=Athena.Core.Pcl"
-			 			  x:Class="Athena.TestHarness.Pcl.ViewModels.AnimationDemoPage">
+			 			  x:Class="Athena.TestHarness.Pcl.ViewModels.PopupButtonDemoPage">
 	<coreView:ContentPageBase.Padding>
     	<OnPlatform x:TypeArguments="Thickness">
 	        <OnPlatform.iOS>
@@ -20,7 +20,7 @@
 	</coreView:ContentPageBase.Padding>
 
 	<coreView:ContentPageBase.BindingContext>
-		<viewModels:AnimationDemoPageViewModel />
+		<viewModels:PopupButtonDemoPageViewModel />
 	</coreView:ContentPageBase.BindingContext>
 
 	<coreView:ContentPageBase.Content>
@@ -46,7 +46,7 @@
                     HorizontalOptions="Start"
                     Command="{Binding BackCommand}" />
             
-			<Label Text="Animation"
+			<Label Text="PopupButton"
 				   TextColor="White"
 					   Grid.Row="0"
 	                   VerticalOptions="Center"
@@ -57,6 +57,24 @@
 					   		</OnPlatform>
 					   </Label.Font>
 	        </Label>
+
+	        <controls:PopupButton x:Name="popup" 
+								  Grid.Row="1"
+						          WidthRequest="50" 
+							      HeightRequest="50"
+								  StartAngel="-120"
+								  Interval="60"
+							      HorizontalOptions="CenterAndExpand"
+							      VerticalOptions="CenterAndExpand">
+						          <controls:CircleView FillColor="Purple" 
+											           Opacity="0.3" />
+
+						          <controls:CircleView FillColor="Navy" 
+											           Opacity="0.3" />
+
+						          <controls:CircleView FillColor="Olive" 
+											           Opacity="0.3" />
+	        </controls:PopupButton>
         </Grid>
     </coreView:ContentPageBase.Content>
 </coreView:ContentPageBase>

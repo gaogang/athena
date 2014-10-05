@@ -5,9 +5,9 @@ using Xamarin.Forms;
 
 namespace Athena.TestHarness.Pcl.ViewModels
 {	
-	public partial class AnimationDemoPage : ContentPageBase
+	public partial class PopupButtonDemoPage : ContentPageBase
 	{	
-		public AnimationDemoPage ()
+		public PopupButtonDemoPage ()
 		{
 			InitializeComponent ();
 

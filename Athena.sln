@@ -176,6 +176,6 @@ Global
 		{E1230749-9975-474A-AB0B-7650E9DB4796}.Release|iPhoneSimulator.Build.0 = Release|iPhoneSimulator
 	EndGlobalSection
 	GlobalSection(MonoDevelopProperties) = preSolution
-		StartupItem = Athena.TestHarness.Android.App\Athena.TestHarness.Android.App.csproj
+		StartupItem = Athena.TestHarness.iOS.App\Athena.TestHarness.iOS.App.csproj
 	EndGlobalSection
 EndGlobal

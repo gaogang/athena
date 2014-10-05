@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using Xamarin.Forms;
+using Athena.Core.Pcl.Internal;
 
 namespace Athena.Core.Pcl.Layouts
 {
@@ -221,26 +222,18 @@ namespace Athena.Core.Pcl.Layouts
 
 		private static Rectangle GetBoundByRadian(View dependency, View master)
 		{
-			var weigthFactor = GetWidth (dependency);
+			var widthFactor = GetWidth (dependency);
 			var heightFactor = GetHeight (dependency);
 
 			var r = GetR (dependency);
 			var degree = GetDegree (dependency);
 
-			var x = Math.Cos (degree * Math.PI / 180.0) * r;
-			var y = Math.Sin (degree * Math.PI / 180.0) * r;
-
-			var width = master.Width * weigthFactor;
-			var height = master.Height * heightFactor;
-
-			var offsetX = -width / 2;
-			var offsetY = -height / 2;
-
-			return new Rectangle (
-				master.Bounds.Center.X + x + offsetX,
-				master.Bounds.Center.Y + y + offsetY,
-				width,
-				height);
+			return RelativeLayoutCalculator.GetRelativePositionByRadian (
+				master, 
+				r,
+				degree,
+				widthFactor,
+				heightFactor);
 		}
 	}
 }

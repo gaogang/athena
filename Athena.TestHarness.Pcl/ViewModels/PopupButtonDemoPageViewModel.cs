@@ -5,11 +5,11 @@ using Xamarin.Forms;
 
 namespace Athena.TestHarness.Pcl.ViewModels
 {
-	public class AnimationDemoPageViewModel : ViewModelBase
+	public class PopupButtonDemoPageViewModel : ViewModelBase
 	{
 		private readonly ICommand _backCommand;
 
-		public AnimationDemoPageViewModel ()
+		public PopupButtonDemoPageViewModel ()
 		{
 			_backCommand = new Command(BackCommandExecute);	
 		}
