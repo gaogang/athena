@@ -13,6 +13,7 @@
     <Folder Include="iOS\" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="iOS\Views\CircleView.png" />
+    <None Include="iOS\Controls\CircleView.png" />
+    <None Include="iOS\Controls\CircleView.5.png" />
   </ItemGroup>
 </Project>
