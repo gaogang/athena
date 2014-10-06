@@ -92,8 +92,8 @@
 				                     layouts:BindableRelativeLayout.Mode="Radian"
 				                     layouts:BindableRelativeLayout.Degree="0.0"
 				                     layouts:BindableRelativeLayout.R="0.0"
-				                     layouts:BindableRelativeLayout.Width="4.0"
-				                     layouts:BindableRelativeLayout.Height="4.0"/>
+				                     layouts:BindableRelativeLayout.WidthFactor="4.0"
+				                     layouts:BindableRelativeLayout.HeightFactor="4.0"/>
 
 				<controls:CircleView x:Name="Earth"
 				                     FillColor="Aqua"
@@ -102,8 +102,8 @@
 				                     layouts:BindableRelativeLayout.Mode="Radian"
 				                     layouts:BindableRelativeLayout.Degree="45.0"
 				                     layouts:BindableRelativeLayout.R="100.0"
-				                     layouts:BindableRelativeLayout.Width="0.5"
-				                     layouts:BindableRelativeLayout.Height="0.5"/>
+				                     layouts:BindableRelativeLayout.WidthFactor="0.5"
+				                     layouts:BindableRelativeLayout.HeightFactor="0.5"/>
 
 			<controls:CircleView x:Name="MoonObit"
 				                     FillColor="Transparent"
@@ -114,8 +114,8 @@
 				                     layouts:BindableRelativeLayout.Mode="Radian"
 				                     layouts:BindableRelativeLayout.Degree="0.0"
 				                     layouts:BindableRelativeLayout.R="0.0"
-				                     layouts:BindableRelativeLayout.Width="4.0"
-				                     layouts:BindableRelativeLayout.Height="4.0"/>
+				                     layouts:BindableRelativeLayout.WidthFactor="4.0"
+				                     layouts:BindableRelativeLayout.HeightFactor="4.0"/>
 
 			<controls:CircleView x:Name="Moon"
 				                     FillColor="Teal"
@@ -124,8 +124,8 @@
 				                     layouts:BindableRelativeLayout.Mode="Radian"
 				                     layouts:BindableRelativeLayout.Degree="-180.0"
 				                     layouts:BindableRelativeLayout.R="50.0"
-				                     layouts:BindableRelativeLayout.Width="0.5"
-				                     layouts:BindableRelativeLayout.Height="0.5"/>
+				                     layouts:BindableRelativeLayout.WidthFactor="0.5"
+				                     layouts:BindableRelativeLayout.HeightFactor="0.5"/>
 			</layouts:BindableRelativeLayout>
 		</Grid>
 	</coreView:ContentPageBase.Content>

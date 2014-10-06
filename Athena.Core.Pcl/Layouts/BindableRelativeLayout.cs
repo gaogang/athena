@@ -16,8 +16,8 @@ namespace Athena.Core.Pcl.Layouts
 			bindable => GetMode(bindable),
 			RelativeLayoutMode.Offset);
 
-		public static BindableProperty XProperty = BindableProperty.CreateAttached<BindableRelativeLayout, double>(
-			bindable => GetX(bindable),
+		public static BindableProperty XFactorProperty = BindableProperty.CreateAttached<BindableRelativeLayout, double>(
+			bindable => GetXFactor(bindable),
 			0.0, 
 			BindingMode.OneWay, 
 			null, 
@@ -25,8 +25,8 @@ namespace Athena.Core.Pcl.Layouts
 			null, 
 			null);
 
-		public static BindableProperty YProperty = BindableProperty.CreateAttached<BindableRelativeLayout, double>(
-			bindable => GetY(bindable),
+		public static BindableProperty YFactorProperty = BindableProperty.CreateAttached<BindableRelativeLayout, double>(
+			bindable => GetYFactor(bindable),
 			0.0, 
 			BindingMode.OneWay, 
 			null, 
@@ -52,8 +52,8 @@ namespace Athena.Core.Pcl.Layouts
 			null, 
 			null);
 
-		public static BindableProperty WidthProperty = BindableProperty.CreateAttached<BindableRelativeLayout, double>(
-			bindable => GetWidth(bindable),
+		public static BindableProperty WidthFactorProperty = BindableProperty.CreateAttached<BindableRelativeLayout, double>(
+			bindable => GetWidthFactor(bindable),
 			1.0, 
 			BindingMode.OneWay, 
 			null, 
@@ -61,8 +61,8 @@ namespace Athena.Core.Pcl.Layouts
 			null, 
 			null);
 
-		public static BindableProperty HeightProperty = BindableProperty.CreateAttached<BindableRelativeLayout, double>(
-			bindable => GetHeight(bindable),
+		public static BindableProperty HeightFactorProperty = BindableProperty.CreateAttached<BindableRelativeLayout, double>(
+			bindable => GetHeightFactor(bindable),
 			1.0, 
 			BindingMode.OneWay, 
 			null, 
@@ -90,24 +90,24 @@ namespace Athena.Core.Pcl.Layouts
 			obj.SetValue (ModeProperty, value);
 		}
 
-		public static double GetX(BindableObject obj) 
+		public static double GetXFactor(BindableObject obj) 
 		{
-			return (double)obj.GetValue (XProperty);
+			return (double)obj.GetValue (XFactorProperty);
 		}
 
-		public static void SetX(BindableObject obj, double value)
+		public static void SetXFactor(BindableObject obj, double value)
 		{
-			obj.SetValue (XProperty, value);
+			obj.SetValue (XFactorProperty, value);
 		}
 
-		public static double GetY(BindableObject obj) 
+		public static double GetYFactor(BindableObject obj) 
 		{
-			return (double)obj.GetValue (YProperty);
+			return (double)obj.GetValue (YFactorProperty);
 		}
 
-		public static void SetY(BindableObject obj, double value)
+		public static void SetYFactor(BindableObject obj, double value)
 		{
-			obj.SetValue (YProperty, value);
+			obj.SetValue (YFactorProperty, value);
 		}
 
 		public static double GetDegree(BindableObject obj) 
@@ -130,24 +130,24 @@ namespace Athena.Core.Pcl.Layouts
 			obj.SetValue (RProperty, value);
 		}
 
-		public static double GetWidth(BindableObject obj) 
+		public static double GetWidthFactor(BindableObject obj) 
 		{
-			return (double)obj.GetValue (WidthProperty);
+			return (double)obj.GetValue (WidthFactorProperty);
 		}
 
-		public static void SetWidth(BindableObject obj, double value)
+		public static void SetWidthFactor(BindableObject obj, double value)
 		{
-			obj.SetValue (WidthProperty, value);
+			obj.SetValue (WidthFactorProperty, value);
 		}
 
-		public static double GetHeight(BindableObject obj) 
+		public static double GetHeightFactor(BindableObject obj) 
 		{
-			return (double)obj.GetValue (HeightProperty);
+			return (double)obj.GetValue (HeightFactorProperty);
 		}
 
-		public static void SetHeight(BindableObject obj, double value)
+		public static void SetHeightFactor(BindableObject obj, double value)
 		{
-			obj.SetValue (HeightProperty, value);
+			obj.SetValue (HeightFactorProperty, value);
 		}
 
 		private static void OnLayoutChanged(BindableObject obj, double oldValue, double newValue)
@@ -207,11 +207,11 @@ namespace Athena.Core.Pcl.Layouts
 
 		private static Rectangle GetBoundByOffset(View dependency, View master)
 		{
-			var xFactor = GetX (dependency);
-			var yFactor = GetY (dependency);
+			var xFactor = GetXFactor (dependency);
+			var yFactor = GetYFactor (dependency);
 
-			var weigthFactor = GetWidth (dependency);
-			var heightFactor = GetHeight (dependency);
+			var weigthFactor = GetWidthFactor (dependency);
+			var heightFactor = GetHeightFactor (dependency);
 
 			return new Rectangle (
 				master.X + xFactor * master.Width,
@@ -222,8 +222,8 @@ namespace Athena.Core.Pcl.Layouts
 
 		private static Rectangle GetBoundByRadian(View dependency, View master)
 		{
-			var widthFactor = GetWidth (dependency);
-			var heightFactor = GetHeight (dependency);
+			var widthFactor = GetWidthFactor (dependency);
+			var heightFactor = GetHeightFactor (dependency);
 
 			var r = GetR (dependency);
 			var degree = GetDegree (dependency);

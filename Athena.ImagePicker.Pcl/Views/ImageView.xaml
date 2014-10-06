@@ -70,34 +70,34 @@
 					                     BackgroundColor="Black"
 					                     Opacity="0.3" 
 					                     layouts:BindableRelativeLayout.ElementName="imageViewer"
-					                     layouts:BindableRelativeLayout.Width="{Binding LeftMaskWidth}"
+					                     layouts:BindableRelativeLayout.WidthFactor="{Binding LeftMaskWidth}"
 					                     />
 
 								<BoxView x:Name="RightMask"
 					                     BackgroundColor="Black"
 					                     Opacity="0.3" 
 					                     layouts:BindableRelativeLayout.ElementName="imageViewer"
-					                     layouts:BindableRelativeLayout.X="{Binding RightMaskX}"
-					                     layouts:BindableRelativeLayout.Width="{Binding RightMaskWidth}"
+					                     layouts:BindableRelativeLayout.XFactor="{Binding RightMaskX}"
+					                     layouts:BindableRelativeLayout.WidthFactor="{Binding RightMaskWidth}"
 					                     />				                 
 
 								<BoxView x:Name="TopMask"
 					                     BackgroundColor="Black"
 					                     Opacity="0.3" 
 					                     layouts:BindableRelativeLayout.ElementName="imageViewer"
-					                     layouts:BindableRelativeLayout.X="{Binding TopMaskX}"
-					                     layouts:BindableRelativeLayout.Width="{Binding TopMaskWidth}"
-					                     layouts:BindableRelativeLayout.Height="{Binding TopMaskHeight}"
+					                     layouts:BindableRelativeLayout.XFactor="{Binding TopMaskX}"
+					                     layouts:BindableRelativeLayout.WidthFactor="{Binding TopMaskWidth}"
+					                     layouts:BindableRelativeLayout.HeightFactor="{Binding TopMaskHeight}"
 					                     />	
 
 								<BoxView x:Name="BottomMask"
 					                     BackgroundColor="Black"
 					                     Opacity="0.3" 
 					                     layouts:BindableRelativeLayout.ElementName="imageViewer"
-					                     layouts:BindableRelativeLayout.X="{Binding BottomMaskX}"
-					                     layouts:BindableRelativeLayout.Y="{Binding BottomMaskY}"
-					                     layouts:BindableRelativeLayout.Width="{Binding BottomMaskWidth}"
-					                     layouts:BindableRelativeLayout.Height="{Binding BottomMaskHeight}"
+					                     layouts:BindableRelativeLayout.XFactor="{Binding BottomMaskX}"
+					                     layouts:BindableRelativeLayout.YFactor="{Binding BottomMaskY}"
+					                     layouts:BindableRelativeLayout.WidthFactor="{Binding BottomMaskWidth}"
+					                     layouts:BindableRelativeLayout.HeightFactor="{Binding BottomMaskHeight}"
 					                     />	
 
             </layouts:BindableRelativeLayout>
