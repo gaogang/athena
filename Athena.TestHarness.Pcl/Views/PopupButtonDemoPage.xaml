@@ -28,17 +28,22 @@
 			<Grid.RowDefinitions>
 				<RowDefinition Height="auto" />
 				<RowDefinition Height="*" />
+				<RowDefinition Height="auto" />
+				<RowDefinition Height="*" />
 			</Grid.RowDefinitions>
 
 			<Grid.ColumnDefinitions>
 				<ColumnDefinition Width="*" />
+				<ColumnDefinition Width="*" />
 			</Grid.ColumnDefinitions>
 
 			<BoxView Grid.Column="0"
+			         Grid.ColumnSpan="2"
 					 BackgroundColor="#19bbf1" />
 
 			<Button Grid.Row="0" 
 				    Grid.Column="0"
+				    Grid.ColumnSpan="2"
                     Text="&#8592;"
                     TextColor="White"
                     BackgroundColor="Transparent"
@@ -48,32 +53,74 @@
             
 			<Label Text="PopupButton"
 				   TextColor="White"
-					   Grid.Row="0"
-	                   VerticalOptions="Center"
-	                   HorizontalOptions="EndAndExpand">
-	                   <Label.Font>
-					   		<OnPlatform x:TypeArguments="Font">
-						    	<OnPlatform.iOS>SnellRoundhand-Black,24</OnPlatform.iOS>
-					   		</OnPlatform>
-					   </Label.Font>
+				   Grid.Row="0"
+				   Grid.Column="0"
+				   Grid.ColumnSpan="2"
+                   VerticalOptions="Center"
+                   HorizontalOptions="EndAndExpand">
+                   <Label.Font>
+				   		<OnPlatform x:TypeArguments="Font">
+					    	<OnPlatform.iOS>SnellRoundhand-Black,24</OnPlatform.iOS>
+				   		</OnPlatform>
+				   </Label.Font>
 	        </Label>
 
 	        <controls:PopupButton x:Name="popup" 
 								  Grid.Row="1"
-						          WidthRequest="50" 
-							      HeightRequest="50"
-								  StartAngel="-120"
-								  Interval="60"
-							      HorizontalOptions="CenterAndExpand"
-							      VerticalOptions="CenterAndExpand">
-						          <controls:CircleView FillColor="Purple" 
-											           Opacity="0.3" />
+								  Grid.Column="0"
+						          WidthRequest="40" 
+							      HeightRequest="40"
+								  StartAngel="-90"
+								  Interval="45"
+							      HorizontalOptions="EndAndExpand"
+							      VerticalOptions="CenterAndExpand"
+							      Opacity="0.3"
+							      IsExpanded="{Binding IsUpperPopupExpanded}">
+						          <controls:CircleView FillColor="Purple" />
+						          <controls:CircleView FillColor="Navy" />
+						          <controls:CircleView FillColor="Olive" />
+						          <controls:CircleView FillColor="Red" />
+						          <controls:CircleView FillColor="Blue" />
+						          <controls:CircleView FillColor="Gray" />
+						          <controls:CircleView FillColor="Green" />
+						          <controls:CircleView FillColor="Teal" />
+						          <controls:CircleView FillColor="Aqua" />
+	        </controls:PopupButton>
 
-						          <controls:CircleView FillColor="Navy" 
-											           Opacity="0.3" />
+	        <Label Text="Click the Spots"
+				   TextColor="Black"
+				   Grid.Row="2"
+				   Grid.Column="0"
+				   Grid.ColumnSpan="2"
+                   VerticalOptions="Center"
+                   HorizontalOptions="CenterAndExpand">
+                   <Label.Font>
+				   		<OnPlatform x:TypeArguments="Font">
+					    	<OnPlatform.iOS>SnellRoundhand-Black,18</OnPlatform.iOS>
+				   		</OnPlatform>
+				   </Label.Font>
+	        </Label>
 
-						          <controls:CircleView FillColor="Olive" 
-											           Opacity="0.3" />
+	        <controls:PopupButton x:Name="popup2" 
+								  Grid.Row="3"
+								  Grid.Column="1"
+						          WidthRequest="40" 
+							      HeightRequest="40"
+								  StartAngel="-90"
+								  Interval="45"
+							      HorizontalOptions="StartAndExpand"
+							      VerticalOptions="CenterAndExpand"
+							      Opacity="0.3"
+				                  IsExpanded="{Binding IsLowerPopupExpanded}">
+						          <controls:CircleView FillColor="Purple" />
+						          <controls:CircleView FillColor="Navy" />
+						          <controls:CircleView FillColor="Olive" />
+						          <controls:CircleView FillColor="Red" />
+						          <controls:CircleView FillColor="Blue" />
+						          <controls:CircleView FillColor="Gray" />
+						          <controls:CircleView FillColor="Green" />
+						          <controls:CircleView FillColor="Teal" />
+						          <controls:CircleView FillColor="Aqua" />
 	        </controls:PopupButton>
         </Grid>
     </coreView:ContentPageBase.Content>

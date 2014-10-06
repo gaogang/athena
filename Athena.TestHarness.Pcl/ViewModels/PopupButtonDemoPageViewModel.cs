@@ -9,6 +9,9 @@ namespace Athena.TestHarness.Pcl.ViewModels
 	{
 		private readonly ICommand _backCommand;
 
+		private bool _isUpperPopupExpanded;
+		private bool _isLowerPopupExpanded;
+
 		public PopupButtonDemoPageViewModel ()
 		{
 			_backCommand = new Command(BackCommandExecute);	
@@ -18,6 +21,48 @@ namespace Athena.TestHarness.Pcl.ViewModels
 		{
 			get {
 				return _backCommand;
+			}
+		}
+
+		public bool IsUpperPopupExpanded
+		{
+			get {
+				return _isUpperPopupExpanded;
+			}
+
+			set {
+				if (_isUpperPopupExpanded == value) {
+					return;
+				}
+
+				_isUpperPopupExpanded = value;
+
+				if (_isUpperPopupExpanded) {
+					IsLowerPopupExpanded = false;
+				}
+
+				OnPropertyChanged (() => this.IsUpperPopupExpanded);
+			}
+		}
+
+		public bool IsLowerPopupExpanded
+		{
+			get {
+				return _isLowerPopupExpanded;
+			}
+
+			set {
+				if (_isLowerPopupExpanded == value) {
+					return;
+				}
+
+				_isLowerPopupExpanded = value;
+
+				if (_isLowerPopupExpanded) {
+					IsUpperPopupExpanded = false;
+				}
+
+				OnPropertyChanged (() => this.IsLowerPopupExpanded);
 			}
 		}
 

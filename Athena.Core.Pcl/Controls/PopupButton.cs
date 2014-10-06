@@ -20,9 +20,16 @@ namespace Athena.Core.Pcl.Controls
 			typeof(PopupButton), 
 			30.0);
 
-		private readonly IGestureRecognizer _tapRecognizer;
+		public static readonly BindableProperty IsExpandedProperty = BindableProperty.Create (
+			                                                             "IsExpanded",
+			                                                             typeof(bool),
+			                                                             typeof(PopupButton), 
+			                                                             false, 
+			                                                             BindingMode.TwoWay, 
+			                                                             null, 
+			                                                             (bindable, oldValue, newValue) => OnIsExpandedPropertyChanged (bindable, oldValue, newValue));
 
-		private bool _expanded = false;
+		private readonly IGestureRecognizer _tapRecognizer;
 
 		public PopupButton ()
 		{	
@@ -54,11 +61,11 @@ namespace Athena.Core.Pcl.Controls
 		public bool IsExpanded 
 		{
 			get {
-				return _expanded;
+				return (bool)GetValue (IsExpandedProperty);
 			}
 
 			private set {
-				_expanded = value;
+				SetValue (IsExpandedProperty, value);
 			}
 		}
 
@@ -81,35 +88,84 @@ namespace Athena.Core.Pcl.Controls
 				master, 
 				new Rectangle (x, y, WidthRequest, HeightRequest));
 
-			var counter = 0;
-			var startAngel = StartAngel;
-			var interval = Interval;
+			ExpandOrCollapse (
+				master, 
+				(child, bound, opacity) => MoveTo (child, bound, opacity));
+		}
 
-			foreach (var child in Children.Skip(1)) {
-				var angle = startAngel + counter * interval;
+		private static void OnIsExpandedPropertyChanged(
+			BindableObject sender, 
+			object oldValue, 
+			object newValue)
+		{
+			var bindable = sender as PopupButton;
 
-				if (IsExpanded) {
-					LayoutChildIntoBoundingRegion(
-						child,
-						RelativeLayoutCalculator.GetRelativePositionByRadian(
-							master, 
-							WidthRequest * 2.0, 
-							angle));
-				} else {
-					LayoutChildIntoBoundingRegion (
-						child, 
-						new Rectangle (x, y, WidthRequest, HeightRequest));
-				}
-
-				counter++;
-			}
+			bindable.ExpandOrCollapse ();
 		}
 
 		private void OnTapped(View v)
 		{
 			IsExpanded = !IsExpanded;
 
-			ForceLayout ();
+			ExpandOrCollapse ();
+		}
+
+		private void ExpandOrCollapse()
+		{
+			var master = Children.FirstOrDefault ();
+
+			if (master == null) {
+				return;
+			}
+
+			ExpandOrCollapse (
+				master, 
+				(child, bound, opacity) => AnimateTo(child, bound, opacity));
+		}
+
+		private void ExpandOrCollapse(View master, Action<View, Rectangle, double> move)
+		{
+			int counter = 0;
+			var startAngel = StartAngel;
+			var interval = Interval;
+
+			foreach (var child in Children.Skip(1)) {
+				if (IsExpanded) {
+					var angle = startAngel + counter * interval;
+
+					move (
+						child, 
+						RelativeLayoutCalculator.GetRelativePositionByRadian (
+							master, 
+							WidthRequest * 2.0, 
+							angle),
+						0.8);	
+				} else {
+					move (child, master.Bounds, 0.0);	
+				}
+
+				counter++;
+			}
+		}
+
+		private void MoveTo(View child, Rectangle bound, double opacity)
+		{
+			LayoutChildIntoBoundingRegion (child, bound);
+
+			child.Opacity = opacity;
+		}
+
+		private void AnimateTo(View child, Rectangle bound, double opacity)
+		{
+			child.LayoutTo (
+				bound,
+				100, 
+				Easing.SinIn);
+
+			child.FadeTo (
+				opacity, 
+				100,
+				Easing.SinIn);
 		}
 	}
 }
