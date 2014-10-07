@@ -9,3 +9,6 @@ Xamarin Forms is certainly an exciting project, exiting but a little bit prelimi
 4. To burn my spare time
 
 The development will focus on two platforms, iOS and android (en...let's see how windows 10 goes). But iOS will take the highest priority. It means the new features will always arrive at iOS one step (or many steps) ahead of android. 
+
+Wiki: https://github.com/gaogang/athena/wiki
+Blog: https://gaogang.wordpress.com/
