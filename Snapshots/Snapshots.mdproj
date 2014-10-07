@@ -17,5 +17,6 @@
     <None Include="iOS\Controls\CircleView.5.png" />
     <None Include="iOS\Controls\BindableRelativeLayout.png" />
     <None Include="iOS\Controls\PopupButton.png" />
+    <None Include="iOS\Controls\BindableRelativeLayout.5.png" />
   </ItemGroup>
 </Project>
