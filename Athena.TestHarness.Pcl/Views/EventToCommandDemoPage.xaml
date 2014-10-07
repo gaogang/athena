@@ -4,7 +4,8 @@
 						  xmlns:viewModels="clr-namespace:Athena.TestHarness.Pcl.ViewModels;assembly=Athena.TestHarness.Pcl"
 			 			  xmlns:coreView="clr-namespace:Athena.Core.Pcl.Views;assembly=Athena.Core.Pcl"
 			 			  xmlns:controls="clr-namespace:Athena.Core.Pcl.Controls;assembly=Athena.Core.Pcl"
-			 			  x:Class="Athena.TestHarness.Pcl.Views.CircleViewDemoPage">
+			 			  xmlns:event="clr-namespace:Athena.Core.Pcl.Event;assembly=Athena.Core.Pcl"
+			 			  x:Class="Athena.TestHarness.Pcl.Views.EventToCommandDemoPage">
 	<coreView:ContentPageBase.Padding>
     	<OnPlatform x:TypeArguments="Thickness">
 	        <OnPlatform.iOS>
@@ -20,7 +21,7 @@
 	</coreView:ContentPageBase.Padding>
 
 	<coreView:ContentPageBase.BindingContext>
-		<viewModels:CircleViewDemoPageViewModel />
+		<viewModels:EventToCommandDemoPageViewModel />
 	</coreView:ContentPageBase.BindingContext>
 
 	<coreView:ContentPageBase.Content>
@@ -46,7 +47,7 @@
                     HorizontalOptions="Start"
                     Command="{Binding BackCommand}" />
             
-			<Label Text="Traffic Light"
+			<Label Text="EventToCommand"
 				   TextColor="White"
 					   Grid.Row="0"
 	                   VerticalOptions="Center"
@@ -58,8 +59,10 @@
 					   </Label.Font>
 	        </Label>
 
-			  <StackLayout Grid.Row="1" Orientation="Vertical" Spacing="20">
-				<Label Text="Demostration of the CircleView control"
+	        <StackLayout Grid.Row="1" 
+					     Orientation="Vertical" 
+					     Spacing="20">
+				<Label Text="Demostration of EventToCommand. Please write something in the textbox..."
 	                   VerticalOptions="Center"
 	                   HorizontalOptions="CenterAndExpand">
 	                   <Label.Font>
@@ -69,39 +72,22 @@
 					   </Label.Font>
 	             </Label>
 
-	            <controls:CircleView FillColor="Red"
-									 StrokeColor="Black"
-									 StrokeDash="2.0"
-									 StrokeThickness="1.0"
-									 Opacity="0.3"
-									 WidthRequest="100"
-									 HeightRequest="100"
-									 HorizontalOptions="CenterAndExpand"
-									 VerticalOptions="Center"
-									 />
-
-				<controls:CircleView FillColor="Yellow"
-									 StrokeColor="Black"
-									 StrokeDash="2.0"
-									 StrokeThickness="1.0"
-									 Opacity="0.3"
-									 WidthRequest="100"
-									 HeightRequest="100"
-									 HorizontalOptions="CenterAndExpand"
-									 VerticalOptions="Center"
-									 />
-
-				<controls:CircleView FillColor="Blue"
-									 StrokeColor="Black"
-									 StrokeDash="2.0"
-									 StrokeThickness="1.0"
-									 Opacity="0.3"
-									 WidthRequest="100"
-									 HeightRequest="100"
-									 HorizontalOptions="CenterAndExpand"
-									 VerticalOptions="Center"
-									 />
-		      </StackLayout>
-         </Grid>
-	</coreView:ContentPageBase.Content>
+	            <Entry WidthRequest="150"
+					   HorizontalOptions="CenterAndExpand"
+	     			   VerticalOptions="Center"
+	     			   event:EventToCommand.FromEvent="TextChanged"
+	     			   event:EventToCommand.ToCommand="{Binding TextChangedCommand}"
+					 />
+				 <Label Text="{Binding Counter, StringFormat='The Word Count is {0}'}"
+	                    VerticalOptions="Center"
+	                    HorizontalOptions="CenterAndExpand">
+	                   <Label.Font>
+					   		<OnPlatform x:TypeArguments="Font">
+						    	<OnPlatform.iOS>SnellRoundhand-Black,18</OnPlatform.iOS>
+					   		</OnPlatform>
+					   </Label.Font>
+	             </Label>
+			 </StackLayout>
+        </Grid>
+    </coreView:ContentPageBase.Content>
 </coreView:ContentPageBase>

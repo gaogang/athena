@@ -1,13 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
-using Athena.Core.Pcl.Views;
 using Xamarin.Forms;
+using Athena.Core.Pcl.Views;
 
 namespace Athena.TestHarness.Pcl.Views
 {	
-	public partial class PopupButtonDemoPage : ContentPageBase
+	public partial class EventToCommandDemoPage : ContentPageBase
 	{	
-		public PopupButtonDemoPage ()
+		public EventToCommandDemoPage ()
 		{
 			InitializeComponent ();
 

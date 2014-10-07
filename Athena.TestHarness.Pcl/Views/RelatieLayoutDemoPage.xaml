@@ -5,7 +5,7 @@
 			 			 xmlns:coreView="clr-namespace:Athena.Core.Pcl.Views;assembly=Athena.Core.Pcl"
 			 			 xmlns:controls="clr-namespace:Athena.Core.Pcl.Controls;assembly=Athena.Core.Pcl"
 			 			 xmlns:layouts="clr-namespace:Athena.Core.Pcl.Layouts;assembly=Athena.Core.Pcl"
-						 x:Class="Athena.TestHarness.Pcl.RelatieLayoutDemoPage">
+						 x:Class="Athena.TestHarness.Pcl.Views.RelatieLayoutDemoPage">
 	<coreView:ContentPageBase.Padding>
     	<OnPlatform x:TypeArguments="Thickness">
 	        <OnPlatform.iOS>

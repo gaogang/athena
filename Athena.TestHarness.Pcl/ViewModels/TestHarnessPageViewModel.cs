@@ -12,6 +12,7 @@ namespace Athena.TestHarness.Pcl.ViewModels
 		private readonly ICommand _circleViewCommand;
 		private readonly ICommand _relativeLayoutCommand;
 		private readonly ICommand _animationCommand;
+		private readonly ICommand _eventToCommand;
 
 		public TestHarnessPageViewModel ()
 		{
@@ -19,6 +20,7 @@ namespace Athena.TestHarness.Pcl.ViewModels
 			_gestureAwareContentViewCommand = new Command (GestureAwareContentViewCommandExecute);
 			_circleViewCommand = new Command (CircleViewCommandExecute);
 			_animationCommand = new Command(AnimationCommandExecute);
+			_eventToCommand = new Command(EventToCommandExecute);
 		}
 
 		public ICommand GestureAwareContentViewCommand
@@ -49,6 +51,13 @@ namespace Athena.TestHarness.Pcl.ViewModels
 			}
 		}
 
+		public ICommand EventToCommand 
+		{
+			get {
+				return _eventToCommand;
+			}
+		}
+
 		private void RelativeLayoutCommandExecute(object args) 
 		{
 			View.NavigateTo (new RelatieLayoutDemoPage ());
@@ -67,6 +76,11 @@ namespace Athena.TestHarness.Pcl.ViewModels
 		private void AnimationCommandExecute(object args) 
 		{
 			View.NavigateTo (new PopupButtonDemoPage ());
+		}
+
+		private void EventToCommandExecute(object args) 
+		{
+			View.NavigateTo (new EventToCommandDemoPage ());
 		}
 	}
 }

@@ -4,7 +4,7 @@
 						  xmlns:viewModels="clr-namespace:Athena.TestHarness.Pcl.ViewModels;assembly=Athena.TestHarness.Pcl"
 			 			  xmlns:coreView="clr-namespace:Athena.Core.Pcl.Views;assembly=Athena.Core.Pcl"
 			 			  xmlns:controls="clr-namespace:Athena.Core.Pcl.Controls;assembly=Athena.Core.Pcl"
-			 			  x:Class="Athena.TestHarness.Pcl.ViewModels.PopupButtonDemoPage">
+			 			  x:Class="Athena.TestHarness.Pcl.Views.PopupButtonDemoPage">
 	<coreView:ContentPageBase.Padding>
     	<OnPlatform x:TypeArguments="Thickness">
 	        <OnPlatform.iOS>
