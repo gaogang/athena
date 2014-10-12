@@ -34,7 +34,6 @@
     <Compile Include="Layouts\BindableRelativeLayout.cs" />
     <Compile Include="CoreFalseFlag.cs" />
     <Compile Include="Controls\GestureAwareContentView.cs" />
-    <Compile Include="Layouts\RelativeBoundary.cs" />
     <Compile Include="Gesture\GestureOffset.cs" />
     <Compile Include="Gesture\GestureScale.cs" />
     <Compile Include="Views\ContentPageBase.cs" />
@@ -58,6 +57,7 @@
     <Folder Include="ViewModels\" />
     <Folder Include="Internal\" />
     <Folder Include="Event\" />
+    <Folder Include="Pages\" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="Xamarin.Forms.Core">

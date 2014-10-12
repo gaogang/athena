@@ -1,23 +1,24 @@
 ﻿using System;
 using Athena.Core.Pcl.Layouts;
+using Xamarin.Forms;
 
 namespace Athena.ImagePicker.Pcl
 {
 	internal class ImageMask
 	{
-		private RelativeBoundary _roi;
+		private Rectangle _roi;
 
-		private RelativeBoundary _leftMask;
-		private RelativeBoundary _rightMask;
-		private RelativeBoundary _topMask;
-		private RelativeBoundary _bottomMask;
+		private Rectangle _leftMask;
+		private Rectangle _rightMask;
+		private Rectangle _topMask;
+		private Rectangle _bottomMask;
 
 		public ImageMask() :
-			this(null)
+			this(new Rectangle(0,0,0,0))
 		{
 		}
 
-		public ImageMask (RelativeBoundary roi)
+		public ImageMask (Rectangle roi)
 		{
 			_roi = roi;
 
@@ -26,7 +27,7 @@ namespace Athena.ImagePicker.Pcl
 			SetupMasks ();
 		}
 
-		public RelativeBoundary Roi 
+		public Rectangle Roi 
 		{
 			get {
 				return _roi;
@@ -42,28 +43,28 @@ namespace Athena.ImagePicker.Pcl
 			}
 		}
 
-		public RelativeBoundary Left 
+		public Rectangle Left 
 		{
 			get {
 				return _leftMask;
 			}
 		}
 
-		public RelativeBoundary Right 
+		public Rectangle Right 
 		{
 			get {
 				return _rightMask;
 			}
 		}
 
-		public RelativeBoundary Top 
+		public Rectangle Top 
 		{
 			get {
 				return _topMask;
 			}
 		}
 
-		public RelativeBoundary Bottom 
+		public Rectangle Bottom 
 		{
 			get {
 				return _bottomMask;
@@ -73,19 +74,19 @@ namespace Athena.ImagePicker.Pcl
 		private void InitialiseMasks()
 		{
 			if (_leftMask == null) {
-				_leftMask = new RelativeBoundary ();
+				_leftMask = new Rectangle ();
 			}
 
 			if (_rightMask == null) {
-				_rightMask = new RelativeBoundary ();
+				_rightMask = new Rectangle ();
 			}
 
 			if (_topMask == null) {
-				_topMask = new RelativeBoundary ();
+				_topMask = new Rectangle ();
 			}
 
 			if (_bottomMask == null) {
-				_bottomMask = new RelativeBoundary ();
+				_bottomMask = new Rectangle ();
 			}
 		}
 

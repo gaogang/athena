@@ -23,7 +23,7 @@ namespace Athena.ImagePicker.Pcl.ViewModels
 		private int _imageHeight;
 		private int _imageWidth;
 
-		private RelativeBoundary _roiCache;
+		private Rectangle _roiCache;
 
 		public ImageViewModel ()
 		{
@@ -33,7 +33,7 @@ namespace Athena.ImagePicker.Pcl.ViewModels
 			_panCommand = new Command (PanCommandExecute);
 			_pinchCommand = new Command (PinchCommandExecute);
 
-			_mask = new ImageMask (new RelativeBoundary (
+			_mask = new ImageMask (new Rectangle (
 				0.2, 
 				0.2, 
 				0.6, 
@@ -82,7 +82,7 @@ namespace Athena.ImagePicker.Pcl.ViewModels
 			}
 		}
 
-		public RelativeBoundary Roi 
+		public Rectangle Roi 
 		{
 			get {
 				return _mask.Roi;
@@ -212,7 +212,7 @@ namespace Athena.ImagePicker.Pcl.ViewModels
 			var xfactor = gestureArgs.X / _imageWidth;
 			var yfactor = gestureArgs.Y / _imageHeight;
 
-			var roi = new RelativeBoundary (
+			var roi = new Rectangle (
 				          _roiCache.X + xfactor, 
 				          _roiCache.Y + yfactor, 
 				          _roiCache.Width,
@@ -285,7 +285,7 @@ namespace Athena.ImagePicker.Pcl.ViewModels
 			var newX = center.X - newWidth / 2;
 			var newY = center.Y - newHeight / 2;
 
-			var roi = new RelativeBoundary (newX, newY, newWidth, newHeight);
+			var roi = new Rectangle (newX, newY, newWidth, newHeight);
 
 			UpdateRoiAndNotifyPropertyChanged (roi);
 		}
@@ -314,7 +314,7 @@ namespace Athena.ImagePicker.Pcl.ViewModels
 			return maxHeight / _roiCache.Height;
 		}
 
-		private void UpdateRoiAndNotifyPropertyChanged(RelativeBoundary roi)
+		private void UpdateRoiAndNotifyPropertyChanged(Rectangle roi)
 		{
 			Roi = roi;
 
