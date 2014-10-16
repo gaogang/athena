@@ -3,6 +3,7 @@
                  xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
 				 xmlns:viewModels="clr-namespace:Athena.TestHarness.Pcl.ViewModels;assembly=Athena.TestHarness.Pcl"
 				 xmlns:coreView="clr-namespace:Athena.Core.Pcl.Views;assembly=Athena.Core.Pcl"
+				 xmlns:layouts="clr-namespace:Athena.Core.Pcl.Layouts;assembly=Athena.Core.Pcl"
                  x:Class="Athena.TestHarness.Pcl.Views.TestHarnessPage">
 	<coreView:ContentPageBase.Padding>
     	<OnPlatform x:TypeArguments="Thickness">
@@ -23,47 +24,23 @@
 	</coreView:ContentPageBase.BindingContext>
 
 	<coreView:ContentPageBase.Content>
-		<Grid>
-			<Grid.ColumnDefinitions>
-				<ColumnDefinition Width="*" />
-				<ColumnDefinition Width="*" />
-				<ColumnDefinition Width="*" />
-			</Grid.ColumnDefinitions>
-
-			<Grid.RowDefinitions>
-				<RowDefinition Height="auto" />
-				<RowDefinition Height="auto" />
-				<RowDefinition Height="auto" />
-			</Grid.RowDefinitions>
-
-			<Button Grid.Row="1"
-			        Grid.Column="0"
-			        Grid.ColumnSpan="2"
-			        Text="BindableRelativeLayout"
-			        Command="{Binding RelativeLayoutCommand}"
-			        />
-
-			<Button Grid.Row="0"
-			        Grid.Column="1"
-			        Grid.ColumnSpan="2"
-			        Text="GestureAwareContentView" 
+		<layouts:WrappingLayout HorizontalSpacing="10"
+		                        VerticalSpacing="2">
+			<Button Text="BindableRelativeLayout"
+			        Command="{Binding RelativeLayoutCommand}" />
+			
+			<Button Text="GestureAwareContentView" 
 			        Command="{Binding GestureAwareContentViewCommand}"/>
 
-			<Button Grid.Row="0"
-			        Grid.Column="0"
-			        Text="CircleView" 
+			<Button Text="CircleView" 
 			        Command="{Binding CircleViewCommand}"/>
 
-	        <Button Grid.Row="1"
-			        Grid.Column="2"
-			        Text="PopupButton" 
+	        <Button Text="PopupButton" 
 			        Command="{Binding AnimationCommand}"/>
 
-			<Button Grid.Row="2"
-			        Grid.Column="0"
-			        Grid.ColumnSpan="2"
-			        Text="EventToCommand" 
+			<Button Text="EventToCommand" 
 			        Command="{Binding EventToCommand}"/>
-		</Grid>
+		</layouts:WrappingLayout>
+
 	</coreView:ContentPageBase.Content>
 </coreView:ContentPageBase>
