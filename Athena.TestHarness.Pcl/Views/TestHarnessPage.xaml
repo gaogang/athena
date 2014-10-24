@@ -40,6 +40,9 @@
 
 			<Button Text="EventToCommand" 
 			        Command="{Binding EventToCommand}"/>
+
+			<Button Text="MasterDetailPage" 
+			        Command="{Binding MasterMenuPageCommand}"/>
 		</layouts:WrappingLayout>
 
 	</coreView:ContentPageBase.Content>

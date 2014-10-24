@@ -55,12 +55,19 @@
       <DependentUpon>EventToCommandDemoPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="ViewModels\EventToCommandDemoPageViewModel.cs" />
+    <Compile Include="Views\MasterDetailPageDemoPage.xaml.cs">
+      <DependentUpon>MasterDetailPageDemoPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ViewModels\DetailPageViewModel.cs" />
+    <Compile Include="Models\Email.cs" />
+    <Compile Include="ViewModels\MasterDetailPageViewModel.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\Portable\$(TargetFrameworkVersion)\Microsoft.Portable.CSharp.targets" />
   <Import Project="..\packages\Xamarin.Forms.1.2.3.6257\build\portable-win+net45+wp80+MonoAndroid10+MonoTouch10\Xamarin.Forms.targets" Condition="Exists('..\packages\Xamarin.Forms.1.2.3.6257\build\portable-win+net45+wp80+MonoAndroid10+MonoTouch10\Xamarin.Forms.targets')" />
   <ItemGroup>
     <Folder Include="Views\" />
     <Folder Include="ViewModels\" />
+    <Folder Include="Models\" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Athena.Core.Pcl\Athena.Core.Pcl.csproj">
@@ -85,6 +92,9 @@
       <Generator>MSBuild:Compile</Generator>
     </EmbeddedResource>
     <EmbeddedResource Include="Views\EventToCommandDemoPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\MasterDetailPageDemoPage.xaml">
       <Generator>MSBuild:Compile</Generator>
     </EmbeddedResource>
   </ItemGroup>
