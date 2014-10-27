@@ -9,8 +9,94 @@
 	</MasterDetailPage.BindingContext>
 
 	<MasterDetailPage.Master>
-		<ContentPage Title="Master" BackgroundColor="Gray" >
-			
+		<ContentPage Title="Master" BackgroundColor="#404040" >
+			<ContentPage.Padding>
+		    	<OnPlatform x:TypeArguments="Thickness">
+			        <OnPlatform.iOS>
+			          5, 20, 0, 0
+			        </OnPlatform.iOS>
+			        <OnPlatform.Android>
+			          0, 0, 0, 0
+			        </OnPlatform.Android>
+			        <OnPlatform.WinPhone>
+			          0, 0, 0, 0
+			        </OnPlatform.WinPhone>
+		      	</OnPlatform>
+			</ContentPage.Padding>
+
+			<Grid RowSpacing="0">
+				<Grid.RowDefinitions>
+					<RowDefinition Height="auto" />
+					<RowDefinition Height="25" />
+					<RowDefinition Height="*" />
+				</Grid.RowDefinitions>
+
+				<Grid.ColumnDefinitions>
+					<ColumnDefinition Width="10" />
+					<ColumnDefinition Width="*" />
+				</Grid.ColumnDefinitions>
+
+				<StackLayout Orientation="Horizontal"
+				             Grid.ColumnSpan="2">
+					<Image Source="user.png" 
+					       WidthRequest="48" 
+					       HeightRequest="48" />
+					<StackLayout Orientation="Vertical">
+						<Label Text="gaogang" 
+						       TextColor="White"/>
+						<Label Text="@gmail.com" 
+					           TextColor="Gray"/>
+					</StackLayout>
+				</StackLayout>
+
+				<Grid Grid.Row="2"
+				      Grid.Column="1">
+					  <Grid.ColumnDefinitions>
+						<ColumnDefinition Width="*" />
+						<ColumnDefinition Width="55" />
+					  </Grid.ColumnDefinitions>
+
+					  <Grid.RowDefinitions>
+					  	<RowDefinition Height="35" />
+					  	<RowDefinition Height="35" />
+					  	<RowDefinition Height="35" />
+					  	<RowDefinition Height="35" />
+					  </Grid.RowDefinitions>
+
+					<Label Grid.Row="0"
+					       Text="Inbox"
+                           TextColor="White" 
+                           VerticalOptions="CenterAndExpand"/>
+
+                    <BoxView Grid.Row="0"
+                             Grid.Column="1"
+					         BackgroundColor="Gray"
+                             WidthRequest="45" 
+                             HeightRequest="25"
+                             HorizontalOptions="CenterAndExpand"
+                             VerticalOptions="CenterAndExpand"/>
+
+                    <Label Grid.Row="0"
+                           Grid.Column="1"
+                           Text="99+"
+                           TextColor="White"
+                           HorizontalOptions="CenterAndExpand" 
+                           VerticalOptions="CenterAndExpand"/>
+
+                    <Label Grid.Row="1"
+                           Text="Sent Mail"
+                           TextColor="White" 
+                           VerticalOptions="CenterAndExpand"/>
+                    <Label Grid.Row="2"
+                           Text="Drafts"
+                           TextColor="White" 
+                           VerticalOptions="CenterAndExpand"/>
+                    <Label Grid.Row="3"
+                           Text="Spams"
+                           TextColor="White" 
+                           VerticalOptions="CenterAndExpand"/>
+				</Grid>
+			</Grid>
 		</ContentPage>
 	</MasterDetailPage.Master>
 
