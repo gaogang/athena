@@ -62,6 +62,7 @@
   <ItemGroup>
     <Compile Include="Resources\Resource.designer.cs" />
     <Compile Include="Renderers\CircleViewRenderer.cs" />
+    <Compile Include="Renderers\GestureAwareContentViewRenderer.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\AboutResources.txt" />
