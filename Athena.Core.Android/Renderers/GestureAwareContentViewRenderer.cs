@@ -2,17 +2,17 @@
 using System.ComponentModel;
 using System.Windows.Input;
 using Android.Views;
+using Athena.Core.Android.Renderers;
 using Athena.Core.Pcl.Controls;
 using Athena.Core.Pcl.Gesture;
 using Xamarin.Forms;
 using Xamarin.Forms.Platform.Android;
-using Athena.Core.Android.Renderers;
 
 [assembly: ExportRenderer (typeof(GestureAwareContentView), typeof(GestureAwareContentViewRenderer))]
 namespace Athena.Core.Android.Renderers
 {
 	public class GestureAwareContentViewRenderer : 
-			VisualElementRenderer<GestureAwareContentView>, 
+			FrameRenderer,
 			GestureDetector.IOnGestureListener
 	{
 		private GestureDetector _gestureDetector;
@@ -26,7 +26,7 @@ namespace Athena.Core.Android.Renderers
 			set;
 		}
 
-		protected override void OnElementChanged (ElementChangedEventArgs<GestureAwareContentView> e)
+		protected override void OnElementChanged (ElementChangedEventArgs<Frame> e)
 		{
 			base.OnElementChanged (e);
 
@@ -66,6 +66,13 @@ namespace Athena.Core.Android.Renderers
 
 		public bool OnSingleTapUp(MotionEvent e)
 		{
+			return false;
+		}
+
+		public override bool OnTouchEvent (MotionEvent e)
+		{
+			_gestureDetector.OnTouchEvent(e);
+
 			return false;
 		}
 	}

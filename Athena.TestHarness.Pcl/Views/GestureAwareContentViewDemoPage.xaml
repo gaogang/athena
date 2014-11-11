@@ -82,6 +82,8 @@
 			<controls:GestureAwareContentView Grid.Row="2"
                                               Grid.Column="0"
                                               Grid.ColumnSpan="2"
+                                              OutlineColor="Transparent"
+                                              HasShadow="False"
 											  Pan="{Binding PanCommand}"
 											  Pinch="{Binding PinchCommand}"
 											  Swipe="{Binding SwipeCommand}">

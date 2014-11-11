@@ -10,7 +10,7 @@ using Athena.Core.iOS;
 [assembly: ExportRenderer (typeof(GestureAwareContentView), typeof(GestureAwareContentViewRenderer))]
 namespace Athena.Core.iOS
 {
-	public class GestureAwareContentViewRenderer : ViewRenderer<GestureAwareContentView, UIView>
+	public class GestureAwareContentViewRenderer : FrameRenderer
 	{
 		private UILongPressGestureRecognizer _longPressGestureRecognizer;
 		private UIPinchGestureRecognizer _pinchGestureRecognizer;
@@ -18,60 +18,60 @@ namespace Athena.Core.iOS
 		private UISwipeGestureRecognizer _swipeGestureRecognizer;
 		private UIRotationGestureRecognizer _rotationGestureRecognizer;
 
-		protected override void OnElementChanged (ElementChangedEventArgs<GestureAwareContentView> e)
+		protected override void OnElementChanged (ElementChangedEventArgs<Frame> e)
 		{
 			base.OnElementChanged (e);
 
 			if (e.NewElement == null) {
 				RemoveGestureRecognizer ();
+
+				return;
 			}
 
-			if (e.OldElement == null) {
-				var gestureView = e.NewElement;
+			var gestureView = e.NewElement as GestureAwareContentView;
 
-				_longPressGestureRecognizer = new UILongPressGestureRecognizer (
-					sender => {
-						var offset = sender.LocationInView(NativeView);
+			_longPressGestureRecognizer = new UILongPressGestureRecognizer (
+				sender => {
+					var offset = sender.LocationInView(NativeView);
 
-						GestureUtil.ExecuteCommand(gestureView.LongPress, 
-							new GestureOffset(sender.State.ToGestureState(), offset.X, offset.Y));
-					});
+					GestureUtil.ExecuteCommand(gestureView.LongPress, 
+						new GestureOffset(sender.State.ToGestureState(), offset.X, offset.Y));
+				});
 
-				_pinchGestureRecognizer = new UIPinchGestureRecognizer (
-					sender => {
-						var scale = sender.Scale;
+			_pinchGestureRecognizer = new UIPinchGestureRecognizer (
+				sender => {
+					var scale = sender.Scale;
 
-						GestureUtil.ExecuteCommand(gestureView.Pinch, 
-							new GestureScale(sender.State.ToGestureState(), scale));
-					});
+					GestureUtil.ExecuteCommand(gestureView.Pinch, 
+						new GestureScale(sender.State.ToGestureState(), scale));
+				});
 
-				_panGestureRecognizer = new UIPanGestureRecognizer (
-					sender => {
-						var offset = sender.TranslationInView(NativeView);
+			_panGestureRecognizer = new UIPanGestureRecognizer (
+				sender => {
+					var offset = sender.TranslationInView(NativeView);
 
-						GestureUtil.ExecuteCommand(gestureView.Pan, 
-							new GestureOffset(sender.State.ToGestureState(), offset.X, offset.Y));
-					});
+					GestureUtil.ExecuteCommand(gestureView.Pan, 
+						new GestureOffset(sender.State.ToGestureState(), offset.X, offset.Y));
+				});
 
-				_swipeGestureRecognizer = new UISwipeGestureRecognizer (
-					sender => {
-						var offset = sender.LocationInView(NativeView);
+			_swipeGestureRecognizer = new UISwipeGestureRecognizer (
+				sender => {
+					var offset = sender.LocationInView(NativeView);
 
-						GestureUtil.ExecuteCommand(gestureView.Swipe, 
-							new GestureOffset(sender.State.ToGestureState(), offset.X, offset.Y));
-					});
+					GestureUtil.ExecuteCommand(gestureView.Swipe, 
+						new GestureOffset(sender.State.ToGestureState(), offset.X, offset.Y));
+				});
 
-				_rotationGestureRecognizer = new UIRotationGestureRecognizer (
-					sender => {
-						GestureUtil.ExecuteCommand (gestureView.Rotate);
-					});
+			_rotationGestureRecognizer = new UIRotationGestureRecognizer (
+				sender => {
+					GestureUtil.ExecuteCommand (gestureView.Rotate);
+				});
 
-				AddGestureRecognizer (_longPressGestureRecognizer);
-				AddGestureRecognizer (_pinchGestureRecognizer);
-				AddGestureRecognizer (_panGestureRecognizer);
-				AddGestureRecognizer (_swipeGestureRecognizer);
-				AddGestureRecognizer (_rotationGestureRecognizer);
-			}
+			AddGestureRecognizer (_longPressGestureRecognizer);
+			AddGestureRecognizer (_pinchGestureRecognizer);
+			AddGestureRecognizer (_panGestureRecognizer);
+			AddGestureRecognizer (_swipeGestureRecognizer);
+			AddGestureRecognizer (_rotationGestureRecognizer);
 		}
 
 		protected override void Dispose (bool disposing)

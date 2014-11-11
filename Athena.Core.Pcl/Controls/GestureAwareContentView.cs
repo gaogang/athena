@@ -4,7 +4,7 @@ using Xamarin.Forms;
 
 namespace Athena.Core.Pcl.Controls
 {
-	public class GestureAwareContentView : ContentView
+	public class GestureAwareContentView : Frame
 	{
 		public static BindableProperty LongPressProperty = BindableProperty.Create(
 			"LongPress", 
