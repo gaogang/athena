@@ -63,6 +63,9 @@
     <Compile Include="Resources\Resource.designer.cs" />
     <Compile Include="Renderers\CircleViewRenderer.cs" />
     <Compile Include="Renderers\GestureAwareContentViewRenderer.cs" />
+    <Compile Include="Gesture\GestureDetectorListener.cs" />
+    <Compile Include="Gesture\GestureDetectorListenerBase.cs" />
+    <Compile Include="Extensions\MotionEventActionsExtension.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\AboutResources.txt" />
@@ -75,6 +78,8 @@
   <Import Project="..\packages\Xamarin.Forms.1.2.3.6257\build\portable-win+net45+wp80+MonoAndroid10+MonoTouch10\Xamarin.Forms.targets" Condition="Exists('..\packages\Xamarin.Forms.1.2.3.6257\build\portable-win+net45+wp80+MonoAndroid10+MonoTouch10\Xamarin.Forms.targets')" />
   <ItemGroup>
     <Folder Include="Renderers\" />
+    <Folder Include="Gesture\" />
+    <Folder Include="Extensions\" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Athena.Core.Pcl\Athena.Core.Pcl.csproj">

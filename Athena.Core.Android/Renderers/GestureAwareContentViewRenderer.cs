@@ -2,76 +2,55 @@
 using System.ComponentModel;
 using System.Windows.Input;
 using Android.Views;
-using Athena.Core.Android.Renderers;
 using Athena.Core.Pcl.Controls;
 using Athena.Core.Pcl.Gesture;
 using Xamarin.Forms;
 using Xamarin.Forms.Platform.Android;
+using Athena.Core.Android.Renderers;
+using Athena.ImagePicker.Android.Gesture;
 
 [assembly: ExportRenderer (typeof(GestureAwareContentView), typeof(GestureAwareContentViewRenderer))]
 namespace Athena.Core.Android.Renderers
 {
 	public class GestureAwareContentViewRenderer : 
-			FrameRenderer,
-			GestureDetector.IOnGestureListener
+			FrameRenderer
 	{
 		private GestureDetector _gestureDetector;
 
+		private ScaleGestureDetector _scaleGestureDetector;
+
 		public GestureAwareContentViewRenderer ()
 		{
-		}
-
-		private GestureAwareContentView View {
-			get;
-			set;
 		}
 
 		protected override void OnElementChanged (ElementChangedEventArgs<Frame> e)
 		{
 			base.OnElementChanged (e);
 
-			_gestureDetector = new GestureDetector (this);
+			if (e.NewElement == null) {
+				if (_gestureDetector != null) {
+					_gestureDetector.Dispose ();
+					_gestureDetector = null;
+				}
 
-			View = e.NewElement;
-		}
-
-		public bool OnDown(MotionEvent e)
-		{
-			return true;
-		}
-
-		public bool OnFling(MotionEvent e1, MotionEvent e2, float velocityX, float velocityY)
-		{
-			return true;
-		}
-
-		public void OnLongPress(MotionEvent e) 
-		{
-			if (View == null) {
 				return;
 			}
 
-			GestureUtil.ExecuteCommand(View.LongPress, 
-				new GestureOffset(GestureState.Began, e.GetX(), e.GetY()));
-		}
+			IGestureAwareView view = e.NewElement as IGestureAwareView;
 
-		public bool OnScroll(MotionEvent e1, MotionEvent e2, float distanceX, float distanceY)
-		{
-			return true;
-		}
+			if (view == null) {
+				throw new InvalidOperationException ();
+			}
 
-		public void OnShowPress(MotionEvent e) 
-		{
-		}
-
-		public bool OnSingleTapUp(MotionEvent e)
-		{
-			return false;
+			if (_gestureDetector == null) {
+				_gestureDetector = new GestureDetector (
+					new GestureDetectorListener (view));
+			}
 		}
 
 		public override bool OnTouchEvent (MotionEvent e)
 		{
-			_gestureDetector.OnTouchEvent(e);
+			_gestureDetector.OnTouchEvent (e);
 
 			return false;
 		}
